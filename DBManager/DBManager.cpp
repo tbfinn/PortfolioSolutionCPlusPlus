@@ -50,3 +50,25 @@ IDBManager* GetDbManagerInstance()
 {
 	return nullptr;
 }
+
+CDBManager* CDBManager::singleton_ = nullptr;
+
+void CDBManager::foo()
+{
+	/* code */
+}
+CDBManager* CDBManager::GetInstance()
+{
+	/**
+	 * This is a safer way to create an instance. instance = new Singleton is
+	 * dangeruous in case two instance threads wants to access at the same time
+	 */
+	if (singleton_ == nullptr) {
+		OutputDebugString(L"\nCDbManager::GetInstance() - Creating Database Manager");
+		singleton_ = new CDBManager();
+	}
+	else
+		OutputDebugString(L"\nCDbManager::GetInstance() - Database Manager Already Exists");
+
+	return singleton_;
+}

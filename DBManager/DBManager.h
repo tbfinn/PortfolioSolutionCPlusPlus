@@ -9,14 +9,21 @@
 #else
 #define DBMANAGER_API __declspec(dllimport)
 #endif
+#include "IDBManager.h"
 
 // This class is exported from the dll
-class DBMANAGER_API CDBManager {
+class DBMANAGER_API CDBManager : public IDBManager
+{
+protected:
+	CDBManager() = default;
+	~CDBManager() {
+		delete singleton_;
+	}
+
+	static CDBManager* singleton_;
+
 public:
-	CDBManager(void);
-	// TODO: add your methods here.
+	static CDBManager* GetInstance();
+	void foo() override;
 };
 
-extern DBMANAGER_API int nDBManager;
-
-DBMANAGER_API int fnDBManager(void);
