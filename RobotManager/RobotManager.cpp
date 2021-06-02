@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "RobotManager.h"
+#include "IRobotManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -43,4 +44,9 @@ int main()
     }
 
     return nRetCode;
+}
+
+IRobotManager* GetRobotManagerInstance()
+{
+	return nullptr;
 }

@@ -27,6 +27,9 @@
     <ClInclude Include="DetectorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IDetectorManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

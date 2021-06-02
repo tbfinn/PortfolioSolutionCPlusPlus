@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IPlanManager.h" />
     <ClInclude Include="PlanManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />

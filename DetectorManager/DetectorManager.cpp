@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "DetectorManager.h"
+#include "IDetectorManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -43,4 +44,9 @@ int main()
     }
 
     return nRetCode;
+}
+
+IDetectorManager* GetDetectorManagerInstance()
+{
+	return nullptr;
 }

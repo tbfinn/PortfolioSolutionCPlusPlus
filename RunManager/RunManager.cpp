@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "RunManager.h"
+#include "IRunManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -43,4 +44,9 @@ int main()
     }
 
     return nRetCode;
+}
+
+IRunManager* GetRunManagerInstance()
+{
+	return nullptr;
 }

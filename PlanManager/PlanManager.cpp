@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "PlanManager.h"
+#include "IPlanManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -43,4 +44,10 @@ int main()
     }
 
     return nRetCode;
+}
+
+
+IPlanManager* GetPlanManagerInstance()
+{
+	return nullptr;
 }
