@@ -49,7 +49,7 @@ int main()
 
 IPlanManager* GetPlanManagerInstance()
 {
-	return nullptr;
+	return CPlanManager::GetInstance();
 }
 
 CPlanManager* CPlanManager::singleton_ = nullptr;

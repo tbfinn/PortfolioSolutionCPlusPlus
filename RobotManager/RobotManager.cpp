@@ -48,7 +48,7 @@ int main()
 
 IRobotManager* GetRobotManagerInstance()
 {
-	return nullptr;
+	return CRobotManager::GetInstance();
 }
 
 CRobotManager* CRobotManager::singleton_ = nullptr;

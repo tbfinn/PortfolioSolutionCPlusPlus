@@ -48,7 +48,7 @@ int main()
 
 IRunManager* GetRunManagerInstance()
 {
-	return nullptr;
+	return CRunManager::GetInstance();
 }
 
 CRunManager* CRunManager::singleton_ = nullptr;

@@ -48,7 +48,7 @@ int main()
 
 IDBManager* GetDbManagerInstance()
 {
-	return nullptr;
+	return CDBManager::GetInstance();
 }
 
 CDBManager* CDBManager::singleton_ = nullptr;
