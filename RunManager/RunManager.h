@@ -11,12 +11,17 @@
 #endif
 
 // This class is exported from the dll
-class RUNMANAGER_API CRunManager {
+class RUNMANAGER_API CRunManager : public IRunManager
+{
+protected:
+	CRunManager() = default;
+	~CRunManager() {
+		delete singleton_;
+	}
+
+	static CRunManager* singleton_;
+
 public:
-	CRunManager(void);
-	// TODO: add your methods here.
+	static CRunManager* GetInstance();
+	void foo() override;
 };
-
-extern RUNMANAGER_API int nRunManager;
-
-RUNMANAGER_API int fnRunManager(void);

@@ -50,3 +50,25 @@ IRobotManager* GetRobotManagerInstance()
 {
 	return nullptr;
 }
+
+CRobotManager* CRobotManager::singleton_ = nullptr;
+
+void CRobotManager::foo()
+{
+	/* code */
+}
+CRobotManager* CRobotManager::GetInstance()
+{
+	/**
+	 * This is a safer way to create an instance. instance = new Singleton is
+	 * dangeruous in case two instance threads wants to access at the same time
+	 */
+	if (singleton_ == nullptr) {
+		OutputDebugString(L"\nCRobotManager::GetInstance() - Creating Robot Manager");
+		singleton_ = new CRobotManager();
+	}
+	else
+		OutputDebugString(L"\nCRobotManager::GetInstance() - Robot Manager Already Exists");
+
+	return singleton_;
+}

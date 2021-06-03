@@ -11,12 +11,19 @@
 #endif
 
 // This class is exported from the dll
-class DETECTORMANAGER_API CDetectorManager {
+class DETECTORMANAGER_API CDetectorManager : public IDetectorManager
+{
+protected:
+	CDetectorManager() = default;
+	~CDetectorManager() {
+		delete singleton_;
+	}
+
+	static CDetectorManager* singleton_;
+
 public:
-	CDetectorManager(void);
-	// TODO: add your methods here.
+	static CDetectorManager* GetInstance();
+	void foo() override;
 };
 
-extern DETECTORMANAGER_API int nDetectorManager;
 
-DETECTORMANAGER_API int fnDetectorManager(void);

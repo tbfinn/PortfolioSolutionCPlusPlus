@@ -50,3 +50,25 @@ IRunManager* GetRunManagerInstance()
 {
 	return nullptr;
 }
+
+CRunManager* CRunManager::singleton_ = nullptr;
+
+void CRunManager::foo()
+{
+	/* code */
+}
+CRunManager* CRunManager::GetInstance()
+{
+	/**
+	 * This is a safer way to create an instance. instance = new Singleton is
+	 * dangeruous in case two instance threads wants to access at the same time
+	 */
+	if (singleton_ == nullptr) {
+		OutputDebugString(L"\nCRunManager::GetInstance() - Creating Run Manager");
+		singleton_ = new CRunManager();
+	}
+	else
+		OutputDebugString(L"\nCRunManager::GetInstance() - Run Manager Already Exists");
+
+	return singleton_;
+}

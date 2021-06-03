@@ -50,3 +50,25 @@ IDetectorManager* GetDetectorManagerInstance()
 {
 	return nullptr;
 }
+
+CDetectorManager* CDetectorManager::singleton_ = nullptr;
+
+void CDetectorManager::foo()
+{
+	/* code */
+}
+CDetectorManager* CDetectorManager::GetInstance()
+{
+	/**
+	 * This is a safer way to create an instance. instance = new Singleton is
+	 * dangeruous in case two instance threads wants to access at the same time
+	 */
+	if (singleton_ == nullptr) {
+		OutputDebugString(L"\nCDetectorManager::GetInstance() - Creating Detector Manager");
+		singleton_ = new CDetectorManager();
+	}
+	else
+		OutputDebugString(L"\nCDetectorManager::GetInstance() - Detector Manager Already Exists");
+
+	return singleton_;
+}

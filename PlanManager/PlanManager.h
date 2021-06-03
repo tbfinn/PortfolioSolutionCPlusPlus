@@ -11,12 +11,17 @@
 #endif
 
 // This class is exported from the dll
-class PLANMANAGER_API CPlanManager {
+class PLANMANAGER_API CPlanManager : public IPlanManager
+{
+protected:
+	CPlanManager() = default;
+	~CPlanManager() {
+		delete singleton_;
+	}
+
+	static CPlanManager* singleton_;
+
 public:
-	CPlanManager(void);
-	// TODO: add your methods here.
+	static CPlanManager* GetInstance();
+	void foo() override;
 };
-
-extern PLANMANAGER_API int nPlanManager;
-
-PLANMANAGER_API int fnPlanManager(void);

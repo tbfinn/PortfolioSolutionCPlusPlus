@@ -51,3 +51,25 @@ IPlanManager* GetPlanManagerInstance()
 {
 	return nullptr;
 }
+
+CPlanManager* CPlanManager::singleton_ = nullptr;
+
+void CPlanManager::foo()
+{
+	/* code */
+}
+CPlanManager* CPlanManager::GetInstance()
+{
+	/**
+	 * This is a safer way to create an instance. instance = new Singleton is
+	 * dangeruous in case two instance threads wants to access at the same time
+	 */
+	if (singleton_ == nullptr) {
+		OutputDebugString(L"\nCPlanManager::GetInstance() - Creating Plan Manager");
+		singleton_ = new CPlanManager();
+	}
+	else
+		OutputDebugString(L"\nCPlanManager::GetInstance() - Plan Manager Already Exists");
+
+	return singleton_;
+}
