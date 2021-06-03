@@ -9,6 +9,7 @@
 #else
 #define PLANMANAGER_API __declspec(dllimport)
 #endif
+#include "IPlanManager.h"
 
 // This class is exported from the dll
 class PLANMANAGER_API CPlanManager : public IPlanManager

@@ -48,7 +48,7 @@ int main()
 
 IDetectorManager* GetDetectorManagerInstance()
 {
-	return nullptr;
+	return CDetectorManager::GetInstance();
 }
 
 CDetectorManager* CDetectorManager::singleton_ = nullptr;

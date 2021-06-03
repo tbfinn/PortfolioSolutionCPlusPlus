@@ -9,6 +9,7 @@
 #else
 #define RUNMANAGER_API __declspec(dllimport)
 #endif
+#include "IRunManager.h"
 
 // This class is exported from the dll
 class RUNMANAGER_API CRunManager : public IRunManager

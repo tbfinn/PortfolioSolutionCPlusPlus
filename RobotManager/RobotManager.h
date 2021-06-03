@@ -9,6 +9,7 @@
 #else
 #define ROBOTMANAGER_API __declspec(dllimport)
 #endif
+#include "IRobotManager.h"
 
 // This class is exported from the dll
 class ROBOTMANAGER_API CRobotManager : public IRobotManager
