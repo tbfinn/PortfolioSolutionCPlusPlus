@@ -1,7 +1,18 @@
+/**
+  * File: RunManager.h
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 #include "IRunManager.h"
 
-// This class is exported from the dll
-class RUNMANAGER_API CRunManager : public IRunManager
+class CRunManager : public IRunManager
 {
 protected:
 	CRunManager() = default;

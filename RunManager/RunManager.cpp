@@ -1,5 +1,15 @@
-// RunManager.cpp : Defines the exported functions for the DLL application.
-//
+/**
+  * File: RunManager.cpp
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 
 #include "stdafx.h"
 #include "RunManager.h"

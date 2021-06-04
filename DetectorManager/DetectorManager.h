@@ -1,6 +1,17 @@
+/**
+  * File: DetectorManager.h
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 #include "IDetectorManager.h"
 
-// This class is exported from the dll
 class CDetectorManager : public IDetectorManager
 {
 protected:

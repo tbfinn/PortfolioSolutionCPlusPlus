@@ -4,7 +4,7 @@
 // post-build command: lib Detector.obj
 
 /**
-	* File: Detector.h
+	* File: Detector.cpp
 	*
 	* Author:  Timothy B. Finn (tbf.lodi@gmail.com)
 	* Date:     Spring 2021

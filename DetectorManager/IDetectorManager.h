@@ -1,3 +1,15 @@
+/**
+  * File: IDetectorManager.h
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 #pragma once
 #ifdef DETECTORMANAGER_EXPORTS
 #define DETECTORMANAGER_API __declspec(dllexport)

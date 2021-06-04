@@ -1,5 +1,15 @@
-// DetectorManager.cpp : Defines the exported functions for the DLL application.
-//
+/**
+  * File: DetectorManager.cpp
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 
 #include "stdafx.h"
 #include "DetectorManager.h"

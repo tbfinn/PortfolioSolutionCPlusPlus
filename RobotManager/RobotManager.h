@@ -1,7 +1,18 @@
+/**
+  * File: RobotManager.h
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 #include "IRobotManager.h"
 
-// This class is exported from the dll
-class ROBOTMANAGER_API CRobotManager : public IRobotManager
+class CRobotManager : public IRobotManager
 {
 protected:
 	CRobotManager() = default;

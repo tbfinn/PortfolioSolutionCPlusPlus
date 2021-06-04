@@ -1,7 +1,18 @@
+/**
+  * File: PlanManager.h
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 #include "IPlanManager.h"
 
-// This class is exported from the dll
-class PLANMANAGER_API CPlanManager : public IPlanManager
+class CPlanManager : public IPlanManager
 {
 protected:
 	CPlanManager() = default;

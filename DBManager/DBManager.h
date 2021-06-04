@@ -1,7 +1,18 @@
+/**
+  * File: DBManager.h
+  *
+  * Author:  Timothy B. Finn (tbf.lodi@gmail.com)
+  * Date:     Spring 2021
+  * Project:   Portfolio Project
+  *
+  * Summary of File:
+  *
+  *
+  *
+  */
 #include "IDBManager.h"
 
-// This class is exported from the dll
-class DBMANAGER_API CDBManager : public IDBManager
+class CDBManager : public IDBManager
 {
 protected:
 	CDBManager() = default;
