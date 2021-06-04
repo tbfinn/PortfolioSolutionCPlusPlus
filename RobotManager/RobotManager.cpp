@@ -14,6 +14,8 @@
 #include "stdafx.h"
 #include "RobotManager.h"
 #include "IRobotManager.h"
+#include "IDBManager.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -66,6 +68,8 @@ CRobotManager* CRobotManager::singleton_ = nullptr;
 void CRobotManager::foo()
 {
 	/* code */
+	IDBManager* pdbm = GetDbManagerInstance();
+
 }
 CRobotManager* CRobotManager::GetInstance()
 {

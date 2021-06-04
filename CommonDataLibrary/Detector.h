@@ -32,6 +32,7 @@ namespace DataLibrary
 
 		// Methods
 	public:
+		void foo();
 
 		// Functions
 	private:

@@ -12,6 +12,7 @@
 */
 #include "stdafx.h"
 #include "Robot.h"
+#include "IDBManager.h"
 
 
 namespace DataLibrary
@@ -34,5 +35,12 @@ namespace DataLibrary
 	}
 	CRobot::~CRobot()
 	{
+	}
+
+	void CRobot::foo()
+	{
+		/* code */
+		IDBManager* pdbm = GetDbManagerInstance();
+
 	}
 }

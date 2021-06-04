@@ -14,6 +14,7 @@
 #include "stdafx.h"
 #include "PlanManager.h"
 #include "IPlanManager.h"
+#include "IDBManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -67,6 +68,8 @@ CPlanManager* CPlanManager::singleton_ = nullptr;
 void CPlanManager::foo()
 {
 	/* code */
+	IDBManager* pdbm = GetDbManagerInstance();
+
 }
 CPlanManager* CPlanManager::GetInstance()
 {

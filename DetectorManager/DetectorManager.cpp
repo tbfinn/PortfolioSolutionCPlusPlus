@@ -14,7 +14,6 @@
 #include "stdafx.h"
 #include "DetectorManager.h"
 #include "IDetectorManager.h"
-
 #include "IDBManager.h"
 
 #ifdef _DEBUG

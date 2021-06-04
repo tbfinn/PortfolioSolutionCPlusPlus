@@ -14,6 +14,8 @@
 #include "stdafx.h"
 #include "RunManager.h"
 #include "IRunManager.h"
+#include "IDBManager.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -66,6 +68,8 @@ CRunManager* CRunManager::singleton_ = nullptr;
 void CRunManager::foo()
 {
 	/* code */
+	IDBManager* pdbm = GetDbManagerInstance();
+
 }
 CRunManager* CRunManager::GetInstance()
 {

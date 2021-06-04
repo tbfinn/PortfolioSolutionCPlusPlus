@@ -4,18 +4,38 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "PortfolioSolutionCPlusPlus\PortfolioSolutionCPlusPlus.vcxproj", "{96BD13FC-2652-4A33-B0F1-A7FD65364D8E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75F1F91D-4305-4D1D-A7EB-16EDB993B9CE} = {75F1F91D-4305-4D1D-A7EB-16EDB993B9CE}
+		{944D4D63-4935-47CD-82A3-C204BF41016A} = {944D4D63-4935-47CD-82A3-C204BF41016A}
+		{78D7A89E-93D2-4431-BAE3-8482CC68FA1D} = {78D7A89E-93D2-4431-BAE3-8482CC68FA1D}
+		{6360FECD-224E-40FD-B0DC-66AAEBA71095} = {6360FECD-224E-40FD-B0DC-66AAEBA71095}
+		{7B5D7ED8-BB27-4816-8A13-F167028E9FF9} = {7B5D7ED8-BB27-4816-8A13-F167028E9FF9}
+		{95C9AFEE-C177-4A35-AE3B-9AECB284FEFF} = {95C9AFEE-C177-4A35-AE3B-9AECB284FEFF}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommonDataLibrary", "CommonDataLibrary\CommonDataLibrary.vcxproj", "{95C9AFEE-C177-4A35-AE3B-9AECB284FEFF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DBManager", "DBManager\DBManager.vcxproj", "{78D7A89E-93D2-4431-BAE3-8482CC68FA1D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{95C9AFEE-C177-4A35-AE3B-9AECB284FEFF} = {95C9AFEE-C177-4A35-AE3B-9AECB284FEFF}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DetectorManager", "DetectorManager\DetectorManager.vcxproj", "{7B5D7ED8-BB27-4816-8A13-F167028E9FF9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlanManager", "PlanManager\PlanManager.vcxproj", "{944D4D63-4935-47CD-82A3-C204BF41016A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78D7A89E-93D2-4431-BAE3-8482CC68FA1D} = {78D7A89E-93D2-4431-BAE3-8482CC68FA1D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobotManager", "RobotManager\RobotManager.vcxproj", "{75F1F91D-4305-4D1D-A7EB-16EDB993B9CE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78D7A89E-93D2-4431-BAE3-8482CC68FA1D} = {78D7A89E-93D2-4431-BAE3-8482CC68FA1D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RunManager", "RunManager\RunManager.vcxproj", "{6360FECD-224E-40FD-B0DC-66AAEBA71095}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78D7A89E-93D2-4431-BAE3-8482CC68FA1D} = {78D7A89E-93D2-4431-BAE3-8482CC68FA1D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

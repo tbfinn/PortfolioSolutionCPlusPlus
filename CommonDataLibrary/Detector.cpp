@@ -18,6 +18,8 @@
 
 #include "stdafx.h"
 #include "Detector.h"
+#include "IDBManager.h"
+
 
 namespace DataLibrary
 {
@@ -39,5 +41,12 @@ namespace DataLibrary
 	}
 	CDetector::~CDetector()
 	{
+	}
+
+	void CDetector::foo()
+	{
+		/* code */
+		IDBManager* pdbm = GetDbManagerInstance();
+
 	}
 }

@@ -12,6 +12,7 @@
 */
 #include "stdafx.h"
 #include "Plan.h"
+#include "IDBManager.h"
 
 
 namespace DataLibrary
@@ -34,5 +35,12 @@ namespace DataLibrary
 	}
 	CPlan::~CPlan()
 	{
+	}
+
+	void CPlan::foo()
+	{
+		/* code */
+		IDBManager* pdbm = GetDbManagerInstance();
+
 	}
 }
