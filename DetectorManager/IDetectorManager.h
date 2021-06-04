@@ -17,6 +17,7 @@
 #define DETECTORMANAGER_API __declspec(dllimport)
 #endif
 
+
 class IDetectorManager
 {
 public:
@@ -24,3 +25,5 @@ public:
 };
 
 DETECTORMANAGER_API IDetectorManager* GetDetectorManagerInstance();
+
+

@@ -15,6 +15,8 @@
 #include "DetectorManager.h"
 #include "IDetectorManager.h"
 
+#include "IDBManager.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -66,6 +68,7 @@ CDetectorManager* CDetectorManager::singleton_ = nullptr;
 void CDetectorManager::foo()
 {
 	/* code */
+	IDBManager* pdbm =  GetDbManagerInstance();
 }
 CDetectorManager* CDetectorManager::GetInstance()
 {
