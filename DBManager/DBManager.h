@@ -25,5 +25,10 @@ protected:
 public:
 	static CDBManager* GetInstance();
 	void foo() override;
+
+
+	void* QueryPlans(void) override;
+	void* QueryDetectors(void) override;
+	void* QueryRobots(void) override;
 };
 

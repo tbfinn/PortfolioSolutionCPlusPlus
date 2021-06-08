@@ -13,8 +13,25 @@
 #pragma once
 class IController
 {
+	// Properties
 public:
-	IController();
-	~IController();
+
+	// Methods
+public:
+
+	virtual bool LoadPlanView() = 0;
+	virtual bool LoadDetectorView() = 0;
+	virtual bool LoadRobotView() = 0;
+
+	// Functions n/a
+private:
+
+	// Fields n/a
+private:
+
+	// Attributes n/a
+private:
+
 };
+
 

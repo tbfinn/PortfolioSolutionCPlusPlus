@@ -82,3 +82,17 @@ CDBManager* CDBManager::GetInstance()
 
 	return singleton_;
 }
+
+
+void* CDBManager::QueryPlans()
+{
+	return false;
+}
+void* CDBManager::QueryDetectors()
+{
+	return false;
+}
+void* CDBManager::QueryRobots()
+{
+	return false;
+}

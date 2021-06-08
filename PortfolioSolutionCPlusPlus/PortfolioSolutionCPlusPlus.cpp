@@ -56,6 +56,11 @@ CPortfolioSolutionCPlusPlusApp::CPortfolioSolutionCPlusPlusApp() noexcept
 
 CPortfolioSolutionCPlusPlusApp theApp;
 
+//void CPortfolioCPlusPlusApp::UpdateViews()
+//{
+//	void* pModel = get_Model();
+//	((CMainFrame*)m_pMainWnd)->UpdateNavigationViews(pModel);
+//}
 
 // CPortfolioSolutionCPlusPlusApp initialization
 

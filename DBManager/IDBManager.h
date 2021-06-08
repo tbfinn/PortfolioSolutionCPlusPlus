@@ -21,6 +21,11 @@ class IDBManager
 {
 public:
 	virtual void foo() = 0;
+
+	virtual void* QueryPlans(void) = 0;
+	virtual void* QueryDetectors(void) = 0;
+	virtual void* QueryRobots(void) = 0;
+
 };
 
 DBMANAGER_API IDBManager* GetDbManagerInstance();

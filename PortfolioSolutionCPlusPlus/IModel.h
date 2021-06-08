@@ -11,10 +11,16 @@
   *
   */
 #pragma once
+#include <vector>
 class IModel
 {
+	// Properties
 public:
-	IModel();
-	~IModel();
+	virtual void* get_Plans(void) = 0;
+	virtual void set_Plans(void*) = 0;
+	virtual void* get_Robots(void) = 0;
+	virtual void set_Robots(void*) = 0;
+	virtual void* get_Detectors(void) = 0;
+	virtual void set_Detectors(void*) = 0;
 };
 

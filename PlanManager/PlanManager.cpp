@@ -86,3 +86,11 @@ CPlanManager* CPlanManager::GetInstance()
 
 	return singleton_;
 }
+
+void* CPlanManager::RequestPlans(void* pDbManager)
+{
+	/*CDbManager* dbms = (CDbManager*)pDbManager;
+	void* data = dbms->QueryPlans();
+	return data;*/
+	return false;
+}

@@ -25,4 +25,7 @@ protected:
 public:
 	static CPlanManager* GetInstance();
 	void foo() override;
+	//void* RequestPlans(void*) override;
+	void* RequestPlans(void*);
 };
+

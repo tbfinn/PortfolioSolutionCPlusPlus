@@ -22,3 +22,18 @@ Model::Model()
 Model::~Model()
 {
 }
+
+void Model::set_Plans(void* plans)
+{
+	
+}
+
+void Model::set_Detectors(void* detectors)
+{
+
+}
+
+void Model::set_Robots(void* robots)
+{
+
+}
