@@ -25,6 +25,9 @@ protected:
 public:
 	static CDetectorManager* GetInstance();
 	void foo() override;
+
+	void* RequestDetectors(void*);
+	void ReleaseDetectors(void*);
 };
 
 

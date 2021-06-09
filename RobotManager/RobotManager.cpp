@@ -86,3 +86,16 @@ CRobotManager* CRobotManager::GetInstance()
 
 	return singleton_;
 }
+
+void* CRobotManager::RequestRobots(void* pDbManager)
+{
+	/*CDbManager* dbms = (CDbManager*)pDbManager;
+	void* data = dbms->QueryPlans();
+	return data;*/
+	return false;
+}
+
+void CRobotManager::ReleaseRobots(void* pDbManager)
+{
+
+}

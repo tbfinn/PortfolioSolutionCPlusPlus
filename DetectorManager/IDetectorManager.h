@@ -22,6 +22,9 @@ class IDetectorManager
 {
 public:
 	virtual void foo() = 0;
+
+	virtual void* RequestDetectors(void* pDetectorManager) = 0;
+	virtual void ReleaseDetectors(void* pDBManager) = 0;
 };
 
 DETECTORMANAGER_API IDetectorManager* GetDetectorManagerInstance();

@@ -84,3 +84,16 @@ CDetectorManager* CDetectorManager::GetInstance()
 
 	return singleton_;
 }
+
+void* CDetectorManager::RequestDetectors(void* pDbManager)
+{
+	/*CDbManager* dbms = (CDbManager*)pDbManager;
+	void* data = dbms->QueryPlans();
+	return data;*/
+	return false;
+}
+
+void CDetectorManager::ReleaseDetectors(void* pDbManager)
+{
+
+}

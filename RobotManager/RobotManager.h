@@ -25,4 +25,7 @@ protected:
 public:
 	static CRobotManager* GetInstance();
 	void foo() override;
+
+	void* RequestRobots(void*);
+	void ReleaseRobots(void*);
 };

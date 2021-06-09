@@ -21,6 +21,9 @@ class IRobotManager
 {
 public:
 	virtual void foo() = 0;
+
+	virtual void* RequestRobots(void* pRobotManager) = 0;
+	virtual void ReleaseRobots(void* pDBManager) = 0;
 };
 
 ROBOTMANAGER_API IRobotManager* GetRobotManagerInstance();
