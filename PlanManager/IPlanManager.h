@@ -21,6 +21,9 @@ class IPlanManager
 {
 public:
 	virtual void foo() = 0;
+
+	virtual void* RequestPlans(void* pPlanManager) = 0;
+  	virtual void ReleasePlans(void* pDBManager) = 0;
 };
 
 PLANMANAGER_API IPlanManager* GetPlanManagerInstance();

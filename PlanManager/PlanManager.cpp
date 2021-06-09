@@ -94,3 +94,8 @@ void* CPlanManager::RequestPlans(void* pDbManager)
 	return data;*/
 	return false;
 }
+
+void CPlanManager::ReleasePlans(void* pDbManager)
+{
+	
+}
