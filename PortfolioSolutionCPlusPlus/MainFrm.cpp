@@ -128,8 +128,31 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_wndFileView.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndClassView.EnableDocking(CBRS_ALIGN_ANY);
 	DockPane(&m_wndFileView);
+
+	m_wndPlanView.EnableDocking(CBRS_ALIGN_ANY);
+	DockPane(&m_wndPlanView);
+
+	m_wndDetectorView.EnableDocking(CBRS_ALIGN_ANY);
+	DockPane(&m_wndDetectorView);
+
+	m_wndRobotView.EnableDocking(CBRS_ALIGN_ANY);
+	DockPane(&m_wndRobotView);
+
+
+
+
 	CDockablePane* pTabbedBar = nullptr;
 	m_wndClassView.AttachToTabWnd(&m_wndFileView, DM_SHOW, TRUE, &pTabbedBar);
+
+	CDockablePane* pTabbedBar2 = nullptr;
+	m_wndPlanView.AttachToTabWnd(&m_wndFileView, DM_SHOW, TRUE, &pTabbedBar2);
+
+	CDockablePane* pTabbedBar3 = nullptr;
+	m_wndRobotView.AttachToTabWnd(&m_wndFileView, DM_SHOW, TRUE, &pTabbedBar3);
+
+	CDockablePane* pTabbedBar4 = nullptr;
+	m_wndDetectorView.AttachToTabWnd(&m_wndFileView, DM_SHOW, TRUE, &pTabbedBar4);
+
 	m_wndOutput.EnableDocking(CBRS_ALIGN_ANY);
 	DockPane(&m_wndOutput);
 	m_wndProperties.EnableDocking(CBRS_ALIGN_ANY);
@@ -206,6 +229,36 @@ BOOL CMainFrame::CreateDockingWindows()
 {
 	BOOL bNameValid;
 
+	// Create detector view
+	CString strDetectorView;
+	bNameValid = strDetectorView.LoadString(IDS_DETECTOR_VIEW);
+	ASSERT(bNameValid);
+	if (!m_wndDetectorView.Create(strDetectorView, this, CRect(100, 100, 300, 300), TRUE, ID_VIEW_DETECTORVIEW, WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_LEFT | CBRS_FLOAT_MULTI))
+	{
+		TRACE0("Failed to create Detector View window\n");
+		return FALSE; // failed to create
+	}
+
+	//// Create robot view
+	CString strRobotView;
+	bNameValid = strRobotView.LoadString(IDS_ROBOT_VIEW);
+	ASSERT(bNameValid);
+	if (!m_wndRobotView.Create(strRobotView, this, CRect(0, 0, 200, 200), TRUE, ID_VIEW_ROBOTVIEW, WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_LEFT | CBRS_FLOAT_MULTI))
+	{
+		TRACE0("Failed to create Robot View window\n");
+		return FALSE; // failed to create
+	}
+
+	// Create plan view
+	CString strPlanView;
+	bNameValid = strPlanView.LoadString(IDS_PLAN_VIEW);
+	ASSERT(bNameValid);
+	if (!m_wndPlanView.Create(strPlanView, this, CRect(0, 0, 200, 200), TRUE, ID_VIEW_PLANVIEW, WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_LEFT | CBRS_FLOAT_MULTI))
+	{
+		TRACE0("Failed to create Plan View window\n");
+		return FALSE; // failed to create
+	}
+
 	// Create class view
 	CString strClassView;
 	bNameValid = strClassView.LoadString(IDS_CLASS_VIEW);
@@ -257,6 +310,15 @@ void CMainFrame::SetDockingWindowIcons(BOOL bHiColorIcons)
 
 	HICON hClassViewIcon = (HICON) ::LoadImage(::AfxGetResourceHandle(), MAKEINTRESOURCE(bHiColorIcons ? IDI_CLASS_VIEW_HC : IDI_CLASS_VIEW), IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
 	m_wndClassView.SetIcon(hClassViewIcon, FALSE);
+
+	HICON hPlanViewIcon = (HICON) ::LoadImage(::AfxGetResourceHandle(), MAKEINTRESOURCE(bHiColorIcons ? IDI_CLASS_VIEW_HC : IDI_CLASS_VIEW), IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
+	m_wndPlanView.SetIcon(hClassViewIcon, FALSE);
+
+	HICON hRobotViewIcon = (HICON) ::LoadImage(::AfxGetResourceHandle(), MAKEINTRESOURCE(bHiColorIcons ? IDI_CLASS_VIEW_HC : IDI_CLASS_VIEW), IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
+	m_wndRobotView.SetIcon(hRobotViewIcon, FALSE);
+
+	HICON hDetectorViewIcon = (HICON) ::LoadImage(::AfxGetResourceHandle(), MAKEINTRESOURCE(bHiColorIcons ? IDI_CLASS_VIEW_HC : IDI_CLASS_VIEW_HC), IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
+	m_wndDetectorView.SetIcon(hDetectorViewIcon, FALSE);
 
 	HICON hOutputBarIcon = (HICON) ::LoadImage(::AfxGetResourceHandle(), MAKEINTRESOURCE(bHiColorIcons ? IDI_OUTPUT_WND_HC : IDI_OUTPUT_WND), IMAGE_ICON, ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON), 0);
 	m_wndOutput.SetIcon(hOutputBarIcon, FALSE);

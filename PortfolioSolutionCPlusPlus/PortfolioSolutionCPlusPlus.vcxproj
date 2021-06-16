@@ -187,20 +187,24 @@
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="ClassView.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="DetectorView.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="IController.h" />
     <ClInclude Include="IModel.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="OutputWnd.h" />
+    <ClInclude Include="PlanView.h" />
     <ClInclude Include="PortfolioSolutionCPlusPlus.h" />
     <ClInclude Include="PortfolioSolutionCPlusPlusDoc.h" />
     <ClInclude Include="PortfolioSolutionCPlusPlusView.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="RobotView.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Template.h" />
+    <ClInclude Include="ViewList.h" />
     <ClInclude Include="ViewModel.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
@@ -208,14 +212,17 @@
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="ClassView.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="DetectorView.cpp" />
     <ClCompile Include="FileView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
+    <ClCompile Include="PlanView.cpp" />
     <ClCompile Include="PortfolioSolutionCPlusPlus.cpp" />
     <ClCompile Include="PortfolioSolutionCPlusPlusDoc.cpp" />
     <ClCompile Include="PortfolioSolutionCPlusPlusView.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
+    <ClCompile Include="RobotView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -223,6 +230,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Template.cpp" />
+    <ClCompile Include="ViewList.cpp" />
     <ClCompile Include="ViewModel.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>

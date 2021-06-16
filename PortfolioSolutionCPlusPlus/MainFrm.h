@@ -5,6 +5,9 @@
 #pragma once
 #include "FileView.h"
 #include "ClassView.h"
+#include "PlanView.h"
+#include "DetectorView.h"
+#include "RobotView.h"
 #include "OutputWnd.h"
 #include "PropertiesWnd.h"
 
@@ -40,6 +43,10 @@ protected:  // control bar embedded members
 	CMFCToolBarImages m_UserImages;
 	CFileView         m_wndFileView;
 	CClassView        m_wndClassView;
+	CPlanView         m_wndPlanView;
+	CDetectorView     m_wndDetectorView;
+	CRobotView        m_wndRobotView;
+
 	COutputWnd        m_wndOutput;
 	CPropertiesWnd    m_wndProperties;
 

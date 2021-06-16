@@ -72,6 +72,18 @@
     <ClInclude Include="ViewModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DetectorView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PortfolioSolutionCPlusPlus.cpp">
@@ -117,6 +129,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ViewModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectorView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
