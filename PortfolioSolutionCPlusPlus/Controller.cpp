@@ -23,6 +23,12 @@
 
 Controller::Controller()
 {
+	m_pModel = nullptr;
+	m_pPlanManager = nullptr;
+	m_pRobotManager = nullptr;
+	m_pDetectorManager = nullptr;
+	m_pRunManager = nullptr;
+	m_pDBManager = nullptr;
 }
 
 Controller::Controller(void* pModel, void* pPlanManager, void* pRobotManager, void* pDetectorManager, void* pRunManager, void* pDBManager)

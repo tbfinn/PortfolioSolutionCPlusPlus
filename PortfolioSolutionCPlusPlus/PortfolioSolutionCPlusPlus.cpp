@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(CPortfolioSolutionCPlusPlusApp, CWinAppEx)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
 	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
+	ON_COMMAND(ID_TEST_LOADPLANS, &CPortfolioSolutionCPlusPlusApp::OnTestLoadplans)
 END_MESSAGE_MAP()
 
 
@@ -158,8 +159,9 @@ BOOL CPortfolioSolutionCPlusPlusApp::InitInstance()
 	pMainFrame->UpdateWindow();
 
 	m_pModel = new Model();
-	m_pController = new Controller();
 	m_pViewModel = new ViewModel();
+
+	m_pController = new Controller(m_pModel,);
 
 	return TRUE;
 }
@@ -241,4 +243,11 @@ BOOL CPortfolioSolutionCPlusPlusApp::InitEvents()
 {
 	((Model*)m_pModel)->DataChange += timerHandler1;
 	return TRUE;
+}
+
+
+void CPortfolioSolutionCPlusPlusApp::OnTestLoadplans()
+{
+	// TODO: Add your command handler code here
+	((Controller*)m_pController)->LoadPlanView();
 }

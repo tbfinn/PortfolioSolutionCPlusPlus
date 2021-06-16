@@ -46,5 +46,7 @@ private:
 	void* m_pModel = nullptr;
 	void* m_pController = nullptr;
 	void* m_pViewModel = nullptr;
+public:
+	afx_msg void OnTestLoadplans();
 };
 extern CPortfolioSolutionCPlusPlusApp theApp;
