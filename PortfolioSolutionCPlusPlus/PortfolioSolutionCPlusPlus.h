@@ -38,18 +38,13 @@ public:
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
 
+private:
+	//	functions
+	BOOL InitEvents();
+
+	// attributes
 	void* m_pModel = nullptr;
 	void* m_pController = nullptr;
 	void* m_pViewModel = nullptr;
 };
-
-inline void* CPortfolioSolutionCPlusPlusApp::get_Controller()
-{
-	return m_pController;
-}
-inline void* CPortfolioSolutionCPlusPlusApp::get_Model()
-{
-	return m_pModel;
-}
-
 extern CPortfolioSolutionCPlusPlusApp theApp;

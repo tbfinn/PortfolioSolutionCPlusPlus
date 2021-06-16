@@ -59,16 +59,15 @@ CPortfolioSolutionCPlusPlusApp::CPortfolioSolutionCPlusPlusApp() noexcept
 
 CPortfolioSolutionCPlusPlusApp theApp;
 
-//sz::event_handler<unsigned int> timerHandler1([](unsigned int counter)
-//{
-//	theApp.UpdateViews();
-//});
+sz::event_handler<unsigned int> timerHandler1([](unsigned int counter)
+{
+	theApp.UpdateViews();
+});
 
 
 void CPortfolioSolutionCPlusPlusApp::UpdateViews()
 {
-	void* pModel = get_Model();
-	((CMainFrame*)m_pMainWnd)->UpdateNavigationViews(pModel);
+	((CMainFrame*)m_pMainWnd)->UpdateNavigationViews(m_pModel);
 }
 
 // CPortfolioSolutionCPlusPlusApp initialization
@@ -158,6 +157,10 @@ BOOL CPortfolioSolutionCPlusPlusApp::InitInstance()
 	pMainFrame->ShowWindow(m_nCmdShow);
 	pMainFrame->UpdateWindow();
 
+	m_pModel = new Model();
+	m_pController = new Controller();
+	m_pViewModel = new ViewModel();
+
 	return TRUE;
 }
 
@@ -234,10 +237,8 @@ void CPortfolioSolutionCPlusPlusApp::SaveCustomState()
 }
 
 // CPortfolioSolutionCPlusPlusApp message handlers
-
-
-BOOL CPortfolioCPlusPlusApp::InitEvents()
+BOOL CPortfolioSolutionCPlusPlusApp::InitEvents()
 {
-	((Model*)m_pModel)->DataChange += timerHandler1;
+	((Model*)get_Model())->DataChange += timerHandler1;
 	return TRUE;
 }
