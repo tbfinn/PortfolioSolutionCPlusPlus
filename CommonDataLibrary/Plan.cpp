@@ -40,7 +40,7 @@ namespace DataLibrary
 	void CPlan::foo()
 	{
 		/* code */
-		IDBManager* pdbm = GetDbManagerInstance();
+		//IDBManager* pdbm = GetDbManagerInstance();
 
 	}
 }

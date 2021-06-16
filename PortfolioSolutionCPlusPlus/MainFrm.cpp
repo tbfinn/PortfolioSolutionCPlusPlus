@@ -6,6 +6,8 @@
 #include "PortfolioSolutionCPlusPlus.h"
 
 #include "MainFrm.h"
+#include "Controller.h"
+#include "Model.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -356,6 +358,15 @@ void CMainFrame::OnViewCustomize()
 	CMFCToolBarsCustomizeDialog* pDlgCust = new CMFCToolBarsCustomizeDialog(this, TRUE /* scan menus */);
 	pDlgCust->EnableUserDefinedToolbars();
 	pDlgCust->Create();
+}
+void CMainFrame::UpdateNavigationViews(void* pModel)
+{
+	//	update plan view
+	Model* model = ((Model*)pModel);
+
+
+	void* pplans = ((Model*)pModel)->get_Plans();
+	m_wndPlanView.FillPlanView(pplans);
 }
 
 LRESULT CMainFrame::OnToolbarCreateNew(WPARAM wp,LPARAM lp)

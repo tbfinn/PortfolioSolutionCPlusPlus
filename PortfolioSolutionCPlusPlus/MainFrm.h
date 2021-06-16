@@ -22,6 +22,8 @@ public:
 
 // Operations
 public:
+	void UpdateNavigationViews(void* pModel);
+
 
 // Overrides
 public:

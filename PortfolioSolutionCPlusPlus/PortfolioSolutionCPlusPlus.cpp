@@ -239,6 +239,6 @@ void CPortfolioSolutionCPlusPlusApp::SaveCustomState()
 // CPortfolioSolutionCPlusPlusApp message handlers
 BOOL CPortfolioSolutionCPlusPlusApp::InitEvents()
 {
-	((Model*)get_Model())->DataChange += timerHandler1;
+	((Model*)m_pModel)->DataChange += timerHandler1;
 	return TRUE;
 }

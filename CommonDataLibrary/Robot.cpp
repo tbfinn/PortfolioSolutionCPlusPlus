@@ -40,7 +40,7 @@ namespace DataLibrary
 	void CRobot::foo()
 	{
 		/* code */
-		IDBManager* pdbm = GetDbManagerInstance();
+		//IDBManager* pdbm = GetDbManagerInstance();
 
 	}
 }

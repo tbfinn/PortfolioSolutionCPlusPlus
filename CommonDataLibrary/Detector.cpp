@@ -46,7 +46,7 @@ namespace DataLibrary
 	void CDetector::foo()
 	{
 		/* code */
-		IDBManager* pdbm = GetDbManagerInstance();
+		//IDBManager* pdbm = GetDbManagerInstance();
 
 	}
 }
