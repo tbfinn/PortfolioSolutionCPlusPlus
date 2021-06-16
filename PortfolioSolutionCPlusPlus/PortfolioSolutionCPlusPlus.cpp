@@ -11,6 +11,9 @@
 #include "ChildFrm.h"
 #include "PortfolioSolutionCPlusPlusDoc.h"
 #include "PortfolioSolutionCPlusPlusView.h"
+#include "Controller.h"
+#include "Model.h"
+#include "ViewModel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -56,11 +59,17 @@ CPortfolioSolutionCPlusPlusApp::CPortfolioSolutionCPlusPlusApp() noexcept
 
 CPortfolioSolutionCPlusPlusApp theApp;
 
-//void CPortfolioCPlusPlusApp::UpdateViews()
+//sz::event_handler<unsigned int> timerHandler1([](unsigned int counter)
 //{
-//	void* pModel = get_Model();
-//	((CMainFrame*)m_pMainWnd)->UpdateNavigationViews(pModel);
-//}
+//	theApp.UpdateViews();
+//});
+
+
+void CPortfolioSolutionCPlusPlusApp::UpdateViews()
+{
+	void* pModel = get_Model();
+	((CMainFrame*)m_pMainWnd)->UpdateNavigationViews(pModel);
+}
 
 // CPortfolioSolutionCPlusPlusApp initialization
 
@@ -227,4 +236,8 @@ void CPortfolioSolutionCPlusPlusApp::SaveCustomState()
 // CPortfolioSolutionCPlusPlusApp message handlers
 
 
-
+BOOL CPortfolioCPlusPlusApp::InitEvents()
+{
+	((Model*)m_pModel)->DataChange += timerHandler1;
+	return TRUE;
+}

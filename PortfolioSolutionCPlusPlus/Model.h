@@ -13,8 +13,8 @@
 #pragma once
 #include <list>
 #include "IModel.h"
-//#include "event.h"
-//#include "WatchTimer.h"
+#include "event.h"
+#include "WatchTimer.h"
 
 class Model : IModel
 {
@@ -33,20 +33,20 @@ public:
 	void* get_Detectors(void);
 	void set_Detectors(void*);
 
-	//// Robot property
-	//bool get_Dirty(void);
-	//void set_Dirty(bool);
+	// Robot property
+	bool get_Dirty(void);
+	void set_Dirty(bool);
 
 	// Methods
 public:
 
-	//void ReleasePlans(void);
-	//void ReleaseDetectors(void);
-	//void ReleaseRobots(void);
+	void ReleasePlans(void);
+	void ReleaseDetectors(void);
+	void ReleaseRobots(void);
 
 public:
 	// Events
-	//sz::event<unsigned int> DataChange;
+	sz::event<unsigned int> DataChange;
 
 public:
 
@@ -61,9 +61,9 @@ private:
 	void* m_pDetectors;
 	void* m_pRobots;
 
-	//CWatchTimer m_timer;
-	//unsigned int m_counter = 0;
-	//bool m_dirty = false;
+	CWatchTimer m_timer;
+	unsigned int m_counter = 0;
+	bool m_dirty = false;
 };
 inline void* Model::get_Plans(void)
 {
@@ -77,14 +77,13 @@ inline void* Model::get_Robots(void)
 {
 	return m_pRobots;
 }
-//// Robot property
-//inline bool Model::get_Dirty(void)
-//{
-//	return m_dirty;
-//}
-//inline void Model::set_Dirty(bool val)
-//{
-//	m_dirty = val;
-//	m_timer.Start(100); // 100 milliseconds interval
-//}
+inline bool Model::get_Dirty(void)
+{
+	return m_dirty;
+}
+inline void Model::set_Dirty(bool val)
+{
+	m_dirty = val;
+	m_timer.Start(100); // 100 milliseconds interval
+}
 

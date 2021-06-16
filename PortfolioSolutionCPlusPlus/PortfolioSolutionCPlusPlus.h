@@ -25,6 +25,8 @@ public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
 
+	void UpdateViews();
+
 // Implementation
 	UINT  m_nAppLook;
 	BOOL  m_bHiColorIcons;
@@ -35,6 +37,19 @@ public:
 
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
+
+	void* m_pModel = nullptr;
+	void* m_pController = nullptr;
+	void* m_pViewModel = nullptr;
 };
+
+inline void* CPortfolioSolutionCPlusPlusApp::get_Controller()
+{
+	return m_pController;
+}
+inline void* CPortfolioSolutionCPlusPlusApp::get_Model()
+{
+	return m_pModel;
+}
 
 extern CPortfolioSolutionCPlusPlusApp theApp;

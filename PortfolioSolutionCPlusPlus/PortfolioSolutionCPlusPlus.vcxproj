@@ -188,6 +188,7 @@
     <ClInclude Include="ClassView.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="DetectorView.h" />
+    <ClInclude Include="event.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="IController.h" />
     <ClInclude Include="IModel.h" />
@@ -207,6 +208,7 @@
     <ClInclude Include="ViewList.h" />
     <ClInclude Include="ViewModel.h" />
     <ClInclude Include="ViewTree.h" />
+    <ClInclude Include="WatchTimer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChildFrm.cpp" />
@@ -233,6 +235,7 @@
     <ClCompile Include="ViewList.cpp" />
     <ClCompile Include="ViewModel.cpp" />
     <ClCompile Include="ViewTree.cpp" />
+    <ClCompile Include="WatchTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PortfolioSolutionCPlusPlus.rc" />
