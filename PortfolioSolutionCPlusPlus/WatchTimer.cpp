@@ -9,44 +9,42 @@
 CWatchTimer::CWatchTimer()
 {
 	m_isRunning = false;
-
+	m_isKilled = false;
 }
 CWatchTimer::~CWatchTimer()
 {
 }
 bool CWatchTimer::Start(unsigned int millisecondsInterval)
 {
-	if (m_isRunning)
-	{
-		return false;
-	}
-
+	if (m_isRunning) { return false; }
 	m_isRunning = true;
 	m_millisecondsInterval = millisecondsInterval > 0 ? millisecondsInterval : DEFAULT_TIMER_INTERVAL;
 	m_timerThread = std::thread([this]() { TimerFunc(); });
 
 	return true;
 }
+bool CWatchTimer::Pause()
+{
+	if (!m_isRunning) { return false; }
+	m_isRunning = false;
+	return true;
+}
+bool CWatchTimer::Resume()
+{
+	if (m_isRunning) {	return false; }
+	m_isRunning = true;
+	return true;
+}
 bool CWatchTimer::Stop()
 {
-	if (!m_isRunning)
-	{
-		return false;
-	}
-
 	m_isRunning = false;
-
-	//if (m_timerThread.joinable())
-	//{
-	//	m_timerThread.join();
-	//}
-
+	m_isKilled = true;
 	return true;
 }
 void CWatchTimer::TimerFunc()
 {
 
-	while (m_isRunning)
+	while (!m_isKilled)
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(m_millisecondsInterval));
 

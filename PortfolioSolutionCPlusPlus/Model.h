@@ -15,6 +15,7 @@
 #include "IModel.h"
 #include "event.h"
 #include "WatchTimer.h"
+#include "../CommonDataLibrary/Plan.h"
 
 class Model : IModel
 {
@@ -24,7 +25,9 @@ public:
 	~Model();
 	// Properties
 public:
-	void* get_Plans(void);
+	int get_PlanCount(void) const;
+	DataLibrary::CPlan* get_Plan(int index);
+
 	//void set_Plans(void*);
 
 	void* get_Robots(void);
@@ -67,9 +70,13 @@ private:
 	unsigned int m_counter = 0;
 	bool m_dirty = false;
 };
-inline void* Model::get_Plans(void)
+inline int Model::get_PlanCount(void) const
 {
-	return nullptr;
+	return m_pPlans.size();
+}
+inline DataLibrary::CPlan* Model::get_Plan(int index)
+{
+	return static_cast<DataLibrary::CPlan*>(m_pPlans[index]);
 }
 inline void* Model::get_Detectors(void)
 {
@@ -86,6 +93,5 @@ inline bool Model::get_Dirty(void)
 inline void Model::set_Dirty(bool val)
 {
 	m_dirty = val;
-	m_timer.Start(100); // 100 milliseconds interval
 }
 

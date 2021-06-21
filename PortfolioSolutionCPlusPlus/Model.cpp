@@ -25,15 +25,17 @@ Model::Model()
 		m_counter++;
 		if (m_dirty)
 		{
-			m_timer.Stop();
+			m_dirty = false;
+			m_timer.Pause();
 			OutputDebugStringW(L"CALLING REGISTERED CLIENT.\n");
 			DataChange(m_counter);
 			OutputDebugStringW(L"CALLED REGISTERED CLIENT.\n");
-			//m_timer.Start(1000);
+			m_timer.Resume();
 		}
 		OutputDebugStringW(L"TICK\n");
 	};
-	m_timer.Start(1000);
+	m_timer.Start(1000); // 1 seconds interval
+
 }
 Model::~Model()
 {
