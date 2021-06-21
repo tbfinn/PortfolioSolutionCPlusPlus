@@ -8,6 +8,8 @@
 
 CWatchTimer::CWatchTimer()
 {
+	m_isRunning = false;
+
 }
 CWatchTimer::~CWatchTimer()
 {
@@ -34,15 +36,16 @@ bool CWatchTimer::Stop()
 
 	m_isRunning = false;
 
-	if (m_timerThread.joinable())
-	{
-		m_timerThread.join();
-	}
+	//if (m_timerThread.joinable())
+	//{
+	//	m_timerThread.join();
+	//}
 
 	return true;
 }
 void CWatchTimer::TimerFunc()
 {
+
 	while (m_isRunning)
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(m_millisecondsInterval));

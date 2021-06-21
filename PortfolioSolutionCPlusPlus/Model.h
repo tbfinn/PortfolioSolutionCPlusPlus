@@ -25,7 +25,7 @@ public:
 	// Properties
 public:
 	void* get_Plans(void);
-	void set_Plans(void*);
+	//void set_Plans(void*);
 
 	void* get_Robots(void);
 	void set_Robots(void*);
@@ -44,6 +44,8 @@ public:
 	void ReleaseDetectors(void);
 	void ReleaseRobots(void);
 
+	bool LoadPlans(void);
+
 public:
 	// Events
 	sz::event<unsigned int> DataChange;
@@ -57,7 +59,7 @@ private:
 private:
 	// Attributes
 private:
-	void* m_pPlans;
+	std::vector<void*> m_pPlans;
 	void* m_pDetectors;
 	void* m_pRobots;
 
@@ -67,7 +69,7 @@ private:
 };
 inline void* Model::get_Plans(void)
 {
-	return m_pPlans;
+	return nullptr;
 }
 inline void* Model::get_Detectors(void)
 {

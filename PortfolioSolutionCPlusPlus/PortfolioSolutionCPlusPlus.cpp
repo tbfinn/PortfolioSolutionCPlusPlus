@@ -15,6 +15,13 @@
 #include "Model.h"
 #include "ViewModel.h"
 
+#include "IPlanManager.h"
+#include "IDetectorManager.h"
+#include "IRobotManager.h"
+#include "IRunManager.h"
+
+#include "IDBManager.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -159,9 +166,19 @@ BOOL CPortfolioSolutionCPlusPlusApp::InitInstance()
 	pMainFrame->UpdateWindow();
 
 	m_pModel = new Model();
-	m_pViewModel = new ViewModel();
+	m_pViewModel = new ViewModel(); 
 
-	m_pController = new Controller(m_pModel,);
+	m_pPlanManager = GetPlanManagerInstance();
+	m_pDBManager = GetDbManagerInstance();
+	m_pRobotManager = GetRobotManagerInstance();
+	m_pDetectorManager = GetDetectorManagerInstance();
+	m_pRunManager = GetRunManagerInstance();
+
+	m_pController = new Controller(m_pModel, m_pPlanManager, m_pRobotManager, m_pDetectorManager, m_pRunManager, m_pDBManager);
+
+
+	InitEvents();
+
 
 	return TRUE;
 }

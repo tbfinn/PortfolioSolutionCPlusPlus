@@ -19,37 +19,44 @@
 
 Model::Model()
 {
+	OutputDebugStringW(L"SETTING UP TIMER\n");
+
 	m_timer.Tick += [this]() {
 		m_counter++;
 		if (m_dirty)
 		{
 			m_timer.Stop();
+			OutputDebugStringW(L"CALLING REGISTERED CLIENT.\n");
 			DataChange(m_counter);
+			OutputDebugStringW(L"CALLED REGISTERED CLIENT.\n");
+			//m_timer.Start(1000);
 		}
+		OutputDebugStringW(L"TICK\n");
 	};
+	m_timer.Start(1000);
 }
 Model::~Model()
 {
 	m_timer.Stop();
 }
-void Model::set_Plans(void* plans)
-{
-	//	clear the plan collection
-	ReleasePlans();
-
-	std::vector<void*>* working = new std::vector<void*>();
-
-	//	dereference the input argument to a plan collection instance
-	std::vector<void*> input = *(std::vector<void*>*)plans;
-
-	for (int i = 0; i < (int)input.size(); i++)
-	{
-		void* p = input[i];
-		void* pp = new DataLibrary::CPlan(p);
-		working->push_back((void*)pp);
-	}
-	m_pPlans = (void*)working;
-}
+//void Model::set_Plans(void* plans)
+//{
+//	//	clear the plan collection
+//	ReleasePlans();
+//
+//	std::vector<void*>* working = new std::vector<void*>();
+//
+//	//	dereference the input argument to a plan collection instance
+//	std::vector<void*> input = *(std::vector<void*>*)plans;
+//
+//	for (int i = 0; i < (int)input.size(); i++)
+//	{
+//		void* p = input[i];
+//		void* pp = new DataLibrary::CPlan(p);
+//		working->push_back((void*)pp);
+//	}
+//	m_pPlans = (void*)working;
+//}
 
 void Model::set_Detectors(void* arg)
 {
@@ -91,13 +98,14 @@ void Model::set_Robots(void* arg)
 
 void Model::ReleasePlans(void)
 {
-	std::vector<void*>* pvec = (std::vector<void*>*)m_pPlans;
-	for (int i = 0; i < (int)pvec->size(); i++)
+	//std::vector<void*>* pvec = (std::vector<void*>*)m_pPlans;
+	for (int i = 0; i < (int)m_pPlans.size(); i++)
 	{
-		delete &pvec[i];
+		delete m_pPlans[i];
 	}
-	delete m_pPlans;
-	m_pPlans = nullptr;
+	m_pPlans.clear();
+	//delete m_pPlans;
+	//m_pPlans = nullptr;
 }
 void Model::ReleaseRobots(void)
 {
@@ -118,4 +126,11 @@ void Model::ReleaseDetectors(void)
 	}
 	delete m_pDetectors;
 	m_pDetectors = nullptr;
+}
+
+bool Model::LoadPlans(void)
+{
+	bool rt = false;
+	m_dirty = true;
+	return rt;
 }

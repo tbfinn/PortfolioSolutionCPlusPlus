@@ -106,21 +106,22 @@ bool Controller::LoadPlanView()
 {
 	try
 	{
-		//	cast plan manager to class from void so I can use it.
-		IPlanManager* pm = (IPlanManager*)m_pPlanManager;
 
-		//	ask the database manager for a list of active plans
-		//CPlan* pPlan = (CPlan*)(pm->RequestPlan(m_pDBManager));
-		assert(m_pDBManager != nullptr);
+		////	cast plan manager to class from void so I can use it.
+		//IPlanManager* pm = (IPlanManager*)m_pPlanManager;
 
-		void* plans = pm->RequestPlans(m_pDBManager);
+		////	ask the database manager for a list of active plans
+		////CPlan* pPlan = (CPlan*)(pm->RequestPlan(m_pDBManager));
+		//assert(m_pDBManager != nullptr);
+
+		//void* plans = pm->RequestPlans(m_pDBManager);
 
 		//	cast plan manager to class from void so I can use it.
 		IModel* model = (IModel*)m_pModel;
-		model->set_Plans(plans);
+		bool flag = model->LoadPlans();
 
 		// clean up your temporary memory resoureces related to plans
-		pm->ReleasePlans(m_pDBManager);
+		//pm->ReleasePlans(m_pDBManager);
 
 		return true;
 	}

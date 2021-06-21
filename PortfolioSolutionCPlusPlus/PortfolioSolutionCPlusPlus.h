@@ -46,6 +46,12 @@ private:
 	void* m_pModel = nullptr;
 	void* m_pController = nullptr;
 	void* m_pViewModel = nullptr;
+
+	void* m_pPlanManager = nullptr;
+	void* m_pRobotManager = nullptr;
+	void* m_pDetectorManager = nullptr;
+	void* m_pRunManager = nullptr;
+	void* m_pDBManager = nullptr;
 public:
 	afx_msg void OnTestLoadplans();
 };
