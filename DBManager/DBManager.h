@@ -1,3 +1,4 @@
+#pragma once
 /**
   * File: DBManager.h
   *
@@ -11,6 +12,8 @@
   *
   */
 #include "IDBManager.h"
+#include "../CommonDataLibrary/Plan.h"
+#include <vector>
 
 class CDBManager : public IDBManager
 {
@@ -27,7 +30,7 @@ public:
 	void foo() override;
 
 
-	void* QueryPlans(void) override;
+	std::vector<DataLibrary::CPlan> QueryPlans(void) override;
 	void* QueryDetectors(void) override;
 	void* QueryRobots(void) override;
 };

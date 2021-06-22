@@ -15,10 +15,13 @@
 #include "..\CommonDataLibrary\Plan.h"
 #include "..\CommonDataLibrary\Robot.h"
 #include "..\CommonDataLibrary\Detector.h"
+#include "IDBManager.h"
+#include "DBManager.h"
 
 
-Model::Model()
+Model::Model(void* pDbManager)
 {
+	m_pDbManager = pDbManager;
 	OutputDebugStringW(L"SETTING UP TIMER\n");
 
 	m_timer.Tick += [this]() {
@@ -41,6 +44,25 @@ Model::~Model()
 {
 	m_timer.Stop();
 }
+
+
+bool Model::LoadPlans(void)
+{
+	bool rt = false;
+
+	//	retrieve a list of plans in the database
+	std::vector<DataLibrary::CPlan>p = static_cast<CDBManager*>(m_pDbManager)->QueryPlans();
+
+	//	copy the list to a local container
+	for (auto i = 0; i < static_cast<int>(p.size()); i++)
+	{
+		const auto pplan = new DataLibrary::CPlan(p[i]);
+		m_pPlans.push_back(pplan);
+	}
+	rt = m_dirty = true;
+	return rt;
+}
+
 //void Model::set_Plans(void* plans)
 //{
 //	//	clear the plan collection
@@ -130,9 +152,4 @@ Model::~Model()
 //	m_pDetectors = nullptr;
 //}
 
-bool Model::LoadPlans(void)
-{
-	bool rt = false;
-	m_dirty = true;
-	return rt;
-}
+

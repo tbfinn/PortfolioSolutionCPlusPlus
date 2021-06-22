@@ -20,22 +20,18 @@ namespace DataLibrary
 	CPlan::CPlan()
 	{
 	}
-	CPlan::CPlan(void* pPlan)
-	{
-		CPlan* pplan = (CPlan*)pPlan;
-		//	copy incoming plan to this one.
-		this->m_name = pplan->get_name();
-		this->m_timestamp = pplan->get_timestamp();
-
-	}
 	CPlan::CPlan(std::wstring name, std::time_t time)
 	{
 		m_name = name;
 		m_timestamp = time;
 	}
-	CPlan::~CPlan()
+	inline CPlan::CPlan(const CPlan &obj)
 	{
+		m_name = obj.m_name; // copy the name
+		m_timestamp = obj.m_timestamp; // copy the name
+
 	}
+	CPlan::~CPlan()	= default;
 
 	void CPlan::foo()
 	{

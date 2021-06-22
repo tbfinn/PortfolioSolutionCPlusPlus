@@ -13,6 +13,7 @@
 #pragma once
 #include <ctime>
 #include <string>
+#include <iostream>
 
 namespace DataLibrary
 {
@@ -21,7 +22,7 @@ namespace DataLibrary
 		// Constructors/Destructors
 	public:
 		CPlan();
-		CPlan(void*);
+		CPlan(const CPlan &obj);  // copy constructor
 		CPlan(std::wstring, std::time_t);
 		~CPlan();
 
@@ -54,4 +55,5 @@ namespace DataLibrary
 	{
 		return m_timestamp;
 	}
+
 }

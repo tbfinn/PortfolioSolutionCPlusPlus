@@ -60,7 +60,7 @@ bool Controller::LoadRobotView()
 
 		//	cast robot manager to class from void so I can use it.
 		IModel* model = (IModel*)m_pModel;
-		model->set_Robots(robots);
+		//model->set_Robots(robots);
 
 		// clean up your temporary memory resoureces related to robots
 		pm->ReleaseRobots(m_pDBManager);
@@ -88,7 +88,7 @@ bool Controller::LoadDetectorView()
 
 		//	cast plan manager to class from void so I can use it.
 		IModel* model = (IModel*)m_pModel;
-		model->set_Detectors(detectors);
+		//model->set_Detectors(detectors);
 
 		// clean up your temporary memory resoureces related to plans
 		pm->ReleaseDetectors(m_pDBManager);

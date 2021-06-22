@@ -14,6 +14,8 @@
 #include "stdafx.h"
 #include "DBManager.h"
 #include "IDBManager.h"
+#include <vector>
+#include "../CommonDataLibrary/Plan.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -82,17 +84,35 @@ CDBManager* CDBManager::GetInstance()
 
 	return singleton_;
 }
+////This function returns a new object, not a reference to the object
+//const Point multiply(const Point& p) {
+//	Point point();
+//	//... Do multiplication
+//	return point;
+//}
 
-
-void* CDBManager::QueryPlans()
+std::vector<DataLibrary::CPlan> CDBManager::QueryPlans()
 {
-	return false;
+	std::vector<DataLibrary::CPlan> working;
+
+	// TODO query a database
+	// for now we toenail in dummy code
+
+	for(int i = 0; i < 10;i++)
+	{
+		std::time_t result = std::time(nullptr);
+		const std::wstring name = L"Plan " + std::to_wstring(i);
+		DataLibrary::CPlan plan(name, result);
+		working.push_back(plan);
+	}
+
+	return working;
 }
 void* CDBManager::QueryDetectors()
 {
-	return false;
+	return nullptr;
 }
 void* CDBManager::QueryRobots()
 {
-	return false;
+	return nullptr;
 }

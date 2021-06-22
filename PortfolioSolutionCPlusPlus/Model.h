@@ -24,26 +24,26 @@ class Model : IModel
 {
 	// Constructors/Destructors
 public:
-	Model();
+	Model(void*);
 	~Model();
 	// Properties
 public:
-	int get_PlanCount(void) const;
-	DataLibrary::CPlan* get_Plan(int index);
+	int get_PlanCount(void) override;
+	DataLibrary::CPlan* get_Plan(int index) override;
 
 	//void set_Plans(void*);
 
 	/*void* get_Robots(void);
 	void set_Robots(void*);*/
 
-	int get_RobotCount(void) const;
-	DataLibrary::CRobot* get_Robot(int index);
+	int get_RobotCount(void) override;
+	DataLibrary::CRobot* get_Robot(int index) override;
 
 	/*void* get_Detectors(void);
 	void set_Detectors(void*);*/
 
-	int get_DetectorCount(void) const;
-	DataLibrary::CDetector* get_Detector(int index);
+	int get_DetectorCount(void) override;
+	DataLibrary::CDetector* get_Detector(int index) override;
 
 	// Dirty property
 	bool get_Dirty(void);
@@ -78,36 +78,34 @@ private:
 	CWatchTimer m_timer;
 	unsigned int m_counter = 0;
 	bool m_dirty = false;
+
+	void* m_pDbManager = nullptr;
 };
-inline int Model::get_PlanCount(void) const
+inline int Model::get_PlanCount(void)
 {
-	return m_pPlans.size();
+	return static_cast<int>(m_pPlans.size());
 }
 inline DataLibrary::CPlan* Model::get_Plan(int index)
 {
 	return static_cast<DataLibrary::CPlan*>(m_pPlans[index]);
 }
 
-inline int Model::get_RobotCount(void) const
+inline int Model::get_RobotCount(void)
 {
-	return m_pRobots.size();
+	return (int)m_pRobots.size();
 }
 inline DataLibrary::CRobot* Model::get_Robot(int index)
 {
 	return static_cast<DataLibrary::CRobot*>(m_pRobots[index]);
 }
-
-inline int Model::get_DetectorCount(void) const
+inline int Model::get_DetectorCount(void)
 {
-	return m_pDetectors.size();
+	return (int)m_pDetectors.size();
 }
 inline DataLibrary::CDetector* Model::get_Detector(int index)
 {
 	return static_cast<DataLibrary::CDetector*>(m_pDetectors[index]);
 }
-
-
-
 
 inline bool Model::get_Dirty(void)
 {

@@ -165,14 +165,16 @@ BOOL CPortfolioSolutionCPlusPlusApp::InitInstance()
 	pMainFrame->ShowWindow(m_nCmdShow);
 	pMainFrame->UpdateWindow();
 
-	m_pModel = new Model();
-	m_pViewModel = new ViewModel(); 
+ 
 
 	m_pPlanManager = GetPlanManagerInstance();
 	m_pDBManager = GetDbManagerInstance();
 	m_pRobotManager = GetRobotManagerInstance();
 	m_pDetectorManager = GetDetectorManagerInstance();
 	m_pRunManager = GetRunManagerInstance();
+
+	m_pModel = new Model(m_pDBManager);
+	m_pViewModel = new ViewModel();
 
 	m_pController = new Controller(m_pModel, m_pPlanManager, m_pRobotManager, m_pDetectorManager, m_pRunManager, m_pDBManager);
 

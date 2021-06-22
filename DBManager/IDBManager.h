@@ -16,13 +16,15 @@
 #else
 #define DBMANAGER_API __declspec(dllimport)
 #endif
+#include "../CommonDataLibrary/Plan.h"
+#include <vector>
 
 class IDBManager
 {
 public:
 	virtual void foo() = 0;
 
-	virtual void* QueryPlans(void) = 0;
+	virtual std::vector<DataLibrary::CPlan> QueryPlans(void) = 0;
 	virtual void* QueryDetectors(void) = 0;
 	virtual void* QueryRobots(void) = 0;
 

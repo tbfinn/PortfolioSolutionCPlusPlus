@@ -365,8 +365,8 @@ void CMainFrame::UpdateNavigationViews(void* pModel)
 	Model* model = ((Model*)pModel);
 
 
-	void* pplans = ((Model*)pModel)->get_Plans();
-	m_wndPlanView.FillPlanView(pplans);
+	//void* pplans = ((Model*)pModel)->get_Plans();
+	//m_wndPlanView.FillPlanView(pplans);
 }
 
 LRESULT CMainFrame::OnToolbarCreateNew(WPARAM wp,LPARAM lp)

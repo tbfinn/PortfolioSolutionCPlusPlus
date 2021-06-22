@@ -12,6 +12,10 @@
   */
 #pragma once
 #include <vector>
+#include "../CommonDataLibrary/Plan.h"
+#include "../CommonDataLibrary/Robot.h"
+#include "../CommonDataLibrary/Detector.h"
+
 class IModel
 {
 	// Properties
