@@ -60,75 +60,75 @@ Model::~Model()
 //	m_pPlans = (void*)working;
 //}
 
-void Model::set_Detectors(void* arg)
-{
-	//	clear the plan collection
-	ReleaseDetectors();
+//void Model::set_Detectors(void* arg)
+//{
+//	//	clear the plan collection
+//	ReleaseDetectors();
+//
+//	std::vector<void*>* working = new std::vector<void*>();
+//
+//	//	dereference the input argument to a plan collection instance
+//	std::vector<void*> input = *(std::vector<void*>*)arg;
+//
+//	for (int i = 0; i < (int)input.size(); i++)
+//	{
+//		void* p = input[i];
+//		void* pp = new DataLibrary::CDetector(p);
+//		working->push_back((void*)pp);
+//	}
+//	m_pDetectors = (void*)working;
+//}
 
-	std::vector<void*>* working = new std::vector<void*>();
+//void Model::set_Robots(void* arg)
+//{
+//	//	clear the plan collection
+//	ReleaseRobots();
+//
+//	std::vector<void*>* working = new std::vector<void*>();
+//
+//	//	dereference the input argument to a plan collection instance
+//	std::vector<void*> input = *(std::vector<void*>*)arg;
+//
+//	for (int i = 0; i < (int)input.size(); i++)
+//	{
+//		void* p = input[i];
+//		void* pp = new DataLibrary::CRobot(p);
+//		working->push_back((void*)pp);
+//	}
+//	m_pRobots = (void*)working;
+//}
 
-	//	dereference the input argument to a plan collection instance
-	std::vector<void*> input = *(std::vector<void*>*)arg;
-
-	for (int i = 0; i < (int)input.size(); i++)
-	{
-		void* p = input[i];
-		void* pp = new DataLibrary::CDetector(p);
-		working->push_back((void*)pp);
-	}
-	m_pDetectors = (void*)working;
-}
-
-void Model::set_Robots(void* arg)
-{
-	//	clear the plan collection
-	ReleaseRobots();
-
-	std::vector<void*>* working = new std::vector<void*>();
-
-	//	dereference the input argument to a plan collection instance
-	std::vector<void*> input = *(std::vector<void*>*)arg;
-
-	for (int i = 0; i < (int)input.size(); i++)
-	{
-		void* p = input[i];
-		void* pp = new DataLibrary::CRobot(p);
-		working->push_back((void*)pp);
-	}
-	m_pRobots = (void*)working;
-}
-
-void Model::ReleasePlans(void)
-{
-	//std::vector<void*>* pvec = (std::vector<void*>*)m_pPlans;
-	for (int i = 0; i < (int)m_pPlans.size(); i++)
-	{
-		delete m_pPlans[i];
-	}
-	m_pPlans.clear();
-	//delete m_pPlans;
-	//m_pPlans = nullptr;
-}
-void Model::ReleaseRobots(void)
-{
-	std::vector<void*>* pvec = (std::vector<void*>*)m_pRobots;
-	for (int i = 0; i < (int)pvec->size(); i++)
-	{
-		delete &pvec[i];
-	}
-	delete m_pRobots;
-	m_pRobots = nullptr;
-}
-void Model::ReleaseDetectors(void)
-{
-	std::vector<void*>* pvec = (std::vector<void*>*)m_pDetectors;
-	for (int i = 0; i < (int)pvec->size(); i++)
-	{
-		delete &pvec[i];
-	}
-	delete m_pDetectors;
-	m_pDetectors = nullptr;
-}
+//void Model::ReleasePlans(void)
+//{
+//	//std::vector<void*>* pvec = (std::vector<void*>*)m_pPlans;
+//	for (int i = 0; i < (int)m_pPlans.size(); i++)
+//	{
+//		delete m_pPlans[i];
+//	}
+//	m_pPlans.clear();
+//	//delete m_pPlans;
+//	//m_pPlans = nullptr;
+//}
+//void Model::ReleaseRobots(void)
+//{
+//	std::vector<void*>* pvec = (std::vector<void*>*)m_pRobots;
+//	for (int i = 0; i < (int)pvec->size(); i++)
+//	{
+//		delete &pvec[i];
+//	}
+//	delete m_pRobots;
+//	m_pRobots = nullptr;
+//}
+//void Model::ReleaseDetectors(void)
+//{
+//	std::vector<void*>* pvec = (std::vector<void*>*)m_pDetectors;
+//	for (int i = 0; i < (int)pvec->size(); i++)
+//	{
+//		delete &pvec[i];
+//	}
+//	delete m_pDetectors;
+//	m_pDetectors = nullptr;
+//}
 
 bool Model::LoadPlans(void)
 {
