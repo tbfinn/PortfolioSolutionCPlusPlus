@@ -53,11 +53,13 @@ bool Model::LoadPlans(void)
 	//	retrieve a list of plans in the database
 	std::vector<DataLibrary::CPlan>p = static_cast<CDBManager*>(m_pDbManager)->QueryPlans();
 
+	m_pPlans.clear();
+
 	//	copy the list to a local container
 	for (auto i = 0; i < static_cast<int>(p.size()); i++)
 	{
-		const auto pplan = new DataLibrary::CPlan(p[i]);
-		m_pPlans.push_back(pplan);
+		DataLibrary::CPlan plan(p[i]);
+		m_pPlans.push_back(plan);
 	}
 	rt = m_dirty = true;
 	return rt;

@@ -17,21 +17,16 @@
 
 namespace DataLibrary
 {
-	CPlan::CPlan()
-	{
-	}
 	CPlan::CPlan(std::wstring name, std::time_t time)
 	{
 		m_name = name;
 		m_timestamp = time;
 	}
-	inline CPlan::CPlan(const CPlan &obj)
+	CPlan::CPlan(const CPlan &obj)
 	{
 		m_name = obj.m_name; // copy the name
 		m_timestamp = obj.m_timestamp; // copy the name
-
 	}
-	CPlan::~CPlan()	= default;
 
 	void CPlan::foo()
 	{

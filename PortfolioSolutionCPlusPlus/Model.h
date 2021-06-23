@@ -29,7 +29,7 @@ public:
 	// Properties
 public:
 	int get_PlanCount(void) override;
-	DataLibrary::CPlan* get_Plan(int index) override;
+	DataLibrary::CPlan get_Plan(int index) override;
 
 	//void set_Plans(void*);
 
@@ -56,7 +56,7 @@ public:
 	//void ReleaseDetectors(void);
 	//void ReleaseRobots(void);
 
-	bool LoadPlans(void);
+	bool LoadPlans(void) override;
 
 public:
 	// Events
@@ -71,7 +71,7 @@ private:
 private:
 	// Attributes
 private:
-	std::vector<void*> m_pPlans;
+	std::vector<DataLibrary::CPlan> m_pPlans;
 	std::vector<void*> m_pDetectors;
 	std::vector<void*> m_pRobots;
 
@@ -85,9 +85,9 @@ inline int Model::get_PlanCount(void)
 {
 	return static_cast<int>(m_pPlans.size());
 }
-inline DataLibrary::CPlan* Model::get_Plan(int index)
+inline DataLibrary::CPlan Model::get_Plan(int index)
 {
-	return static_cast<DataLibrary::CPlan*>(m_pPlans[index]);
+	return m_pPlans[index];
 }
 
 inline int Model::get_RobotCount(void)

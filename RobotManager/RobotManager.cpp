@@ -90,7 +90,7 @@ CRobotManager* CRobotManager::GetInstance()
 void* CRobotManager::RequestRobots(void* pDbManager)
 {
 	/*CDbManager* dbms = (CDbManager*)pDbManager;
-	void* data = dbms->QueryPlans();
+	void* data = dbms->QueryRobots();
 	return data;*/
 	return false;
 }

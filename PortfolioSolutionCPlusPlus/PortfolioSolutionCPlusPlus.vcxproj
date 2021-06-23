@@ -81,7 +81,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)RunManager;$(SolutionDir)RobotManager;$(SolutionDir)DetectorManager;$(SolutionDir)PlanManager;$(SolutionDir)DBManager;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)RunManager;$(SolutionDir)RobotManager;$(SolutionDir)DetectorManager;$(SolutionDir)PlanManager;$(SolutionDir)DBManager;$(SolutionDir)CommonDataLibrary;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -89,7 +89,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)RunManager;$(SolutionDir)RobotManager;$(SolutionDir)DetectorManager;$(SolutionDir)PlanManager;$(SolutionDir)DBManager;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)RunManager;$(SolutionDir)RobotManager;$(SolutionDir)DetectorManager;$(SolutionDir)PlanManager;$(SolutionDir)DBManager;$(SolutionDir)CommonDataLibrary;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
