@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+#include <string>
 #include "ViewList.h"
 
 class CDetectorToolBar : public CMFCToolBar
@@ -15,24 +17,25 @@ class CDetectorToolBar : public CMFCToolBar
 class CDetectorView : public CDockablePane
 {
 public:
+
+	//	constuctors
+
 	CDetectorView();
 	~CDetectorView();
-
-	void AdjustLayout();
-	void OnChangeVisualStyle();
-
-protected:
-	CDetectorToolBar m_wndToolBar;
-	CViewList m_wndDetectorView;
-	CImageList m_DetectorViewImages;
-	UINT m_nCurrSort;
-
-	void FillDetectorView();
 
 	// Overrides
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
+public:
+	// methods
+	std::list<std::wstring> l;
+
+	void FillDetectorView(void*);
+	void AdjustLayout();
+	void OnChangeVisualStyle();
+protected:
+	void InitializeDetectorView();
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
@@ -49,6 +52,13 @@ protected:
 	afx_msg void OnUpdateSort(CCmdUI* pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
+
+private:
+	// attributes
+	CDetectorToolBar m_wndToolBar;
+	CViewList m_wndDetectorView;
+	CImageList m_DetectorViewImages;
+	UINT m_nCurrSort;
 };
 
 

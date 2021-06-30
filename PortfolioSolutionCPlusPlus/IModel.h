@@ -25,10 +25,10 @@ public:
 	virtual DataLibrary::CPlan get_Plan(int index) = 0;
 
 	virtual int get_RobotCount(void) = 0;
-	virtual DataLibrary::CRobot* get_Robot(int index) = 0;
+	virtual DataLibrary::CRobot get_Robot(int index) = 0;
 
 	virtual int get_DetectorCount(void) = 0;
-	virtual DataLibrary::CDetector* get_Detector(int index) = 0;
+	virtual DataLibrary::CDetector get_Detector(int index) = 0;
 
 	virtual bool get_Dirty(void) = 0;
 	virtual void set_Dirty(bool) = 0;
@@ -36,5 +36,9 @@ public:
 	//methods
 public:
 	virtual bool LoadPlans(void) = 0;
+	virtual bool LoadRobots(void) = 0;
+	virtual bool LoadDetectors(void) = 0;
+
+
 };
 

@@ -37,6 +37,8 @@ BEGIN_MESSAGE_MAP(CPortfolioSolutionCPlusPlusApp, CWinAppEx)
 	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
 	ON_COMMAND(ID_TEST_LOADPLANS, &CPortfolioSolutionCPlusPlusApp::OnTestLoadplans)
+	ON_COMMAND(ID_TEST_LOADROBOTS, &CPortfolioSolutionCPlusPlusApp::OnTestLoadrobots)
+	ON_COMMAND(ID_TEST_LOADDETECTORS, &CPortfolioSolutionCPlusPlusApp::OnTestLoaddetectors)
 END_MESSAGE_MAP()
 
 
@@ -269,4 +271,16 @@ void CPortfolioSolutionCPlusPlusApp::OnTestLoadplans()
 {
 	// TODO: Add your command handler code here
 	((Controller*)m_pController)->LoadPlanView();
+}
+
+void CPortfolioSolutionCPlusPlusApp::OnTestLoadrobots()
+{
+	// TODO: Add your command handler code here
+	((Controller*)m_pController)->LoadRobotView();
+}
+
+void CPortfolioSolutionCPlusPlusApp::OnTestLoaddetectors()
+{
+	// TODO: Add your command handler code here
+	((Controller*)m_pController)->LoadDetectorView();
 }

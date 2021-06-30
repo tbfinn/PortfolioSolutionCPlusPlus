@@ -65,6 +65,43 @@ bool Model::LoadPlans(void)
 	return rt;
 }
 
+bool Model::LoadRobots(void)
+{
+	bool rt = false;
+
+	//	retrieve a list of plans in the database
+	std::vector<DataLibrary::CRobot>p = static_cast<CDBManager*>(m_pDbManager)->QueryRobots();
+
+	m_pRobots.clear();
+
+	//	copy the list to a local container
+	for (auto i = 0; i < static_cast<int>(p.size()); i++)
+	{
+		DataLibrary::CRobot robot(p[i]);
+		m_pRobots.push_back(robot);
+	}
+	rt = m_dirty = true;
+	return rt;
+}
+
+bool Model::LoadDetectors(void)
+{
+	bool rt = false;
+
+	//	retrieve a list of plans in the database
+	std::vector<DataLibrary::CDetector>p = static_cast<CDBManager*>(m_pDbManager)->QueryDetectors();
+
+	m_pDetectors.clear();
+
+	//	copy the list to a local container
+	for (auto i = 0; i < static_cast<int>(p.size()); i++)
+	{
+		DataLibrary::CDetector detector(p[i]);
+		m_pDetectors.push_back(detector);
+	}
+	rt = m_dirty = true;
+	return rt;
+}
 //void Model::set_Plans(void* plans)
 //{
 //	//	clear the plan collection

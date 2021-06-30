@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+#include <string>
 #include "ViewList.h"
 
 class CRobotToolBar : public CMFCToolBar
@@ -15,24 +17,24 @@ class CRobotToolBar : public CMFCToolBar
 class CRobotView : public CDockablePane
 {
 public:
+
+	// constructors
+
 	CRobotView();
 	~CRobotView();
-
-	void AdjustLayout();
-	void OnChangeVisualStyle();
-
-protected:
-	CRobotToolBar m_wndToolBar;
-	CViewList m_wndRobotView;
-
-	CImageList m_RobotViewImages;
-	UINT m_nCurrSort;
-
-	void FillRobotView();
 
 	// Overrides
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+public:
+	// methods
+	std::list<std::wstring> l;
+
+	void FillRobotView(void*);
+	void AdjustLayout();
+	void OnChangeVisualStyle();
+protected:
+	void InitializeRobotView();
 
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
@@ -50,5 +52,13 @@ protected:
 	afx_msg void OnUpdateSort(CCmdUI* pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
+
+private:
+
+	// attributes
+	CRobotToolBar m_wndToolBar;
+	CViewList m_wndRobotView;
+	CImageList m_RobotViewImages;
+	UINT m_nCurrSort;
 };
 

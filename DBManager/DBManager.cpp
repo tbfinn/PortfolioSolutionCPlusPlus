@@ -108,11 +108,37 @@ std::vector<DataLibrary::CPlan> CDBManager::QueryPlans()
 
 	return working;
 }
-void* CDBManager::QueryDetectors()
+std::vector<DataLibrary::CDetector> CDBManager::QueryDetectors()
 {
-	return nullptr;
+	std::vector<DataLibrary::CDetector> working;
+
+	// TODO query a database
+	// for now we toenail in dummy code
+
+	for (int i = 0; i < 10; i++)
+	{
+		std::time_t result = std::time(nullptr);
+		const std::wstring name = L"Detector " + std::to_wstring(i);
+		DataLibrary::CDetector detector(name, result);
+		working.push_back(detector);
+	}
+
+	return working;
 }
-void* CDBManager::QueryRobots()
+std::vector<DataLibrary::CRobot> CDBManager::QueryRobots()
 {
-	return nullptr;
+	std::vector<DataLibrary::CRobot> working;
+
+	// TODO query a database
+	// for now we toenail in dummy code
+
+	for (int i = 0; i < 10; i++)
+	{
+		std::time_t result = std::time(nullptr);
+		const std::wstring name = L"Robot " + std::to_wstring(i);
+		DataLibrary::CRobot robot(name, result);
+		working.push_back(robot);
+	}
+
+	return working;
 }

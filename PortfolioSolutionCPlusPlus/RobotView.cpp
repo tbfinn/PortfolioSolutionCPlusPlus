@@ -1,8 +1,15 @@
 #include "stdafx.h"
+#include <list>
+#include <string>
+#include <vector>
 #include "MainFrm.h"
 #include "RobotView.h"
 #include "Resource.h"
 #include "PortfolioSolutionCPlusPlus.h"
+
+#include "..\CommonDataLibrary\Plan.h"
+#include "..\CommonDataLibrary\Robot.h"
+#include "..\CommonDataLibrary\Detector.h"
 
 class CRobotViewMenuButton : public CMFCToolBarMenuButton
 {
@@ -109,7 +116,7 @@ int CRobotView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 
 	// Fill in some static list view data (dummy code, nothing magic here)
-	FillRobotView();
+	InitializeRobotView();
 
 	return 0;
 }
@@ -120,32 +127,49 @@ void CRobotView::OnSize(UINT nType, int cx, int cy)
 	AdjustLayout();
 }
 
-void CRobotView::FillRobotView()
+void CRobotView::InitializeRobotView()
 {
 	m_wndRobotView.InsertColumn(
 		0,              // Rank/order of item 
-		L"ID",          // Caption for this header 
+		L"Name",          // Caption for this header 
 		LVCFMT_LEFT,    // Relative position of items under header 
 		100);           // Width of items under header
 
-	m_wndRobotView.InsertColumn(1, L"Name", LVCFMT_CENTER, 80);
-	m_wndRobotView.InsertColumn(2, L"Age", LVCFMT_LEFT, 100);
-	m_wndRobotView.InsertColumn(3, L"Address", LVCFMT_LEFT, 80);
+	m_wndRobotView.InsertColumn(2, L"Date", LVCFMT_LEFT, 100);
+}
 
-	int nItem = m_wndRobotView.InsertItem(0, L"1");
-	m_wndRobotView.SetItemText(nItem, 1, L"Mark");
-	m_wndRobotView.SetItemText(nItem, 2, L"45");
-	m_wndRobotView.SetItemText(nItem, 3, L"Address 1");
+void CRobotView::FillRobotView(void* data)
+{
+	std::vector<void*> pdata = *(std::vector<void*>*) data;
+	int count = (int)(pdata.size());
+	assert(count > 0);
+	for (int i = 0; i < (int)(pdata.size()); i++)
+	{
+		//	retrieve a plan from the list
+		DataLibrary::CRobot* probot = (DataLibrary::CRobot*)pdata[i];
 
-	nItem = m_wndRobotView.InsertItem(0, L"2");
-	m_wndRobotView.SetItemText(nItem, 1, L"Allan");
-	m_wndRobotView.SetItemText(nItem, 2, L"29");
-	m_wndRobotView.SetItemText(nItem, 3, L"Address 2");
+		//	get the name of the plan for column 1
+		std::wstring name = probot->get_name();
 
-	nItem = m_wndRobotView.InsertItem(0, L"3");
-	m_wndRobotView.SetItemText(nItem, 1, L"Ajay");
-	m_wndRobotView.SetItemText(nItem, 2, L"37");
-	m_wndRobotView.SetItemText(nItem, 3, L"Address 3");
+		//	get the timestamp of the plan for column2
+		time_t time = probot->get_timestamp();
+
+		//	convert the time structure into a local time stamps
+		std::tm * ptm = std::localtime(&time);
+
+		//	allocate a tempory buffer for the time string
+		wchar_t buffer[32];
+
+		// Format: Mo, 15.06.2009 20:20:00
+		std::wcsftime(buffer, 32, L"%a, %d.%m.%Y %H:%M:%S", ptm);
+
+		//	insert a new item and set the name at the the first column
+		int nItem = m_wndRobotView.InsertItem(0, name.c_str());
+
+		//	add the timestamp to the new item in the list
+		m_wndRobotView.SetItemText(nItem, 1, buffer);
+	}
+
 }
 
 void CRobotView::OnContextMenu(CWnd* pWnd, CPoint point)

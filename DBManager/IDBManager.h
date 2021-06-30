@@ -17,6 +17,9 @@
 #define DBMANAGER_API __declspec(dllimport)
 #endif
 #include "../CommonDataLibrary/Plan.h"
+#include "../CommonDataLibrary/Detector.h"
+#include "../CommonDataLibrary/Robot.h"
+
 #include <vector>
 
 class IDBManager
@@ -25,8 +28,8 @@ public:
 	virtual void foo() = 0;
 
 	virtual std::vector<DataLibrary::CPlan> QueryPlans(void) = 0;
-	virtual void* QueryDetectors(void) = 0;
-	virtual void* QueryRobots(void) = 0;
+	virtual std::vector<DataLibrary::CDetector> QueryDetectors(void) = 0;
+	virtual std::vector<DataLibrary::CRobot> QueryRobots(void) = 0;
 
 };
 

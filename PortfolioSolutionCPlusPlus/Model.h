@@ -37,13 +37,13 @@ public:
 	void set_Robots(void*);*/
 
 	int get_RobotCount(void) override;
-	DataLibrary::CRobot* get_Robot(int index) override;
+	DataLibrary::CRobot get_Robot(int index) override;
 
 	/*void* get_Detectors(void);
 	void set_Detectors(void*);*/
 
 	int get_DetectorCount(void) override;
-	DataLibrary::CDetector* get_Detector(int index) override;
+	DataLibrary::CDetector get_Detector(int index) override;
 
 	// Dirty property
 	bool get_Dirty(void);
@@ -57,6 +57,9 @@ public:
 	//void ReleaseRobots(void);
 
 	bool LoadPlans(void) override;
+	bool LoadRobots(void) override;
+	bool LoadDetectors(void) override;
+
 
 public:
 	// Events
@@ -72,8 +75,8 @@ private:
 	// Attributes
 private:
 	std::vector<DataLibrary::CPlan> m_pPlans;
-	std::vector<void*> m_pDetectors;
-	std::vector<void*> m_pRobots;
+	std::vector<DataLibrary::CDetector> m_pDetectors;
+	std::vector<DataLibrary::CRobot> m_pRobots;
 
 	CWatchTimer m_timer;
 	unsigned int m_counter = 0;
@@ -92,19 +95,20 @@ inline DataLibrary::CPlan Model::get_Plan(int index)
 
 inline int Model::get_RobotCount(void)
 {
-	return (int)m_pRobots.size();
+	return static_cast<int>(m_pRobots.size());
 }
-inline DataLibrary::CRobot* Model::get_Robot(int index)
+inline DataLibrary::CRobot Model::get_Robot(int index)
 {
-	return static_cast<DataLibrary::CRobot*>(m_pRobots[index]);
+	return m_pRobots[index];
 }
+
 inline int Model::get_DetectorCount(void)
 {
-	return (int)m_pDetectors.size();
+	return static_cast<int>(m_pDetectors.size());
 }
-inline DataLibrary::CDetector* Model::get_Detector(int index)
+inline DataLibrary::CDetector Model::get_Detector(int index)
 {
-	return static_cast<DataLibrary::CDetector*>(m_pDetectors[index]);
+	return m_pDetectors[index];
 }
 
 inline bool Model::get_Dirty(void)

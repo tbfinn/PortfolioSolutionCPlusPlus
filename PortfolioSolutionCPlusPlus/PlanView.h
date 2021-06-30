@@ -32,7 +32,7 @@ public:
 	void AdjustLayout();
 	void OnChangeVisualStyle();
 protected:
-	void InitizePlanView();
+	void InitializePlanView();
 	//std::list<std::wstring>
 protected:
 	//	event handlers

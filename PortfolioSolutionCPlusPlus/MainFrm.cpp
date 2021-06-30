@@ -361,12 +361,18 @@ void CMainFrame::OnViewCustomize()
 }
 void CMainFrame::UpdateNavigationViews(void* pModel)
 {
-	//	update plan view
 	Model* model = ((Model*)pModel);
 
+	//	update plan view
 
-	//void* pplans = ((Model*)pModel)->get_Plans();
-	//m_wndPlanView.FillPlanView(pplans);
+	/*void* pplans = ((Model*)pModel)->get_Plans();
+	m_wndPlanView.FillPlanView(pplans);*/
+
+	// update robot view
+
+	// update detector view
+
+
 }
 
 LRESULT CMainFrame::OnToolbarCreateNew(WPARAM wp,LPARAM lp)

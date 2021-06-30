@@ -54,5 +54,7 @@ private:
 	void* m_pDBManager = nullptr;
 public:
 	afx_msg void OnTestLoadplans();
+	afx_msg void OnTestLoadrobots();
+	afx_msg void OnTestLoaddetectors();
 };
 extern CPortfolioSolutionCPlusPlusApp theApp;

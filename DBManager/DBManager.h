@@ -31,7 +31,7 @@ public:
 
 
 	std::vector<DataLibrary::CPlan> QueryPlans(void) override;
-	void* QueryDetectors(void) override;
-	void* QueryRobots(void) override;
+	std::vector<DataLibrary::CDetector> QueryDetectors(void) override;
+	std::vector<DataLibrary::CRobot> QueryRobots(void) override;
 };
 

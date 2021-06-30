@@ -119,7 +119,7 @@ int CPlanView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 
 	// Fill in some static list view data (dummy code, nothing magic here)
-	InitizePlanView();
+	InitializePlanView();
 
 	return 0;
 }
@@ -130,7 +130,7 @@ void CPlanView::OnSize(UINT nType, int cx, int cy)
 	AdjustLayout();
 }
 
-void CPlanView::InitizePlanView()
+void CPlanView::InitializePlanView()
 {
 	m_wndPlanView.InsertColumn(
 		0,              // Rank/order of item 
