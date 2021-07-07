@@ -365,8 +365,8 @@ void CMainFrame::UpdateNavigationViews(void* pModel)
 
 	//	update plan view
 
-	/*void* pplans = ((Model*)pModel)->get_Plans();
-	m_wndPlanView.FillPlanView(pplans);*/
+	//void* pplans = ((Model*)pModel)->LoadPlans();
+	//m_wndPlanView.FillPlanView(pplans);
 
 	// update robot view
 
