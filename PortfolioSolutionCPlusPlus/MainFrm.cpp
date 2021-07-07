@@ -361,18 +361,32 @@ void CMainFrame::OnViewCustomize()
 }
 void CMainFrame::UpdateNavigationViews(void* pModel)
 {
+	// TODO - CLEAR UI
+
 	Model* model = ((Model*)pModel);
+	int pcnt = static_cast<Model*>(pModel)->get_PlanCount();
+	for(int i = 0; i < pcnt; i++)
+	{
+		DataLibrary::CPlan plan = static_cast<Model*>(pModel)->get_Plan(i);
 
-	//	update plan view
+		// TODO - insert plan into UI
+	}
 
-	//void* pplans = ((Model*)pModel)->LoadPlans();
-	//m_wndPlanView.FillPlanView(pplans);
+	int rcnt = static_cast<Model*>(pModel)->get_RobotCount();
+	for (int i = 0; i < rcnt; i++)
+	{
+		DataLibrary::CRobot robot = static_cast<Model*>(pModel)->get_Robot(i);
 
-	// update robot view
+		// TODO - insert robot into UI
+	}
 
-	// update detector view
+	int dcnt = static_cast<Model*>(pModel)->get_DetectorCount();
+	for (int i = 0; i < dcnt; i++)
+	{
+		DataLibrary::CDetector detector = static_cast<Model*>(pModel)->get_Detector(i);
 
-
+		// TODO - insert robot into UI
+	}
 }
 
 LRESULT CMainFrame::OnToolbarCreateNew(WPARAM wp,LPARAM lp)

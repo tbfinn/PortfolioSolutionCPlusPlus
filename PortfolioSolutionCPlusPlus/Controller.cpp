@@ -49,22 +49,6 @@ bool Controller::LoadRobotView()
 {
 	try
 	{
-		////	cast Robot manager to class from void so I can use it.
-		//IRobotManager* pm = (IRobotManager*)m_pRobotManager;
-
-		////	ask the database manager for a list of active robots
-		////CPlan* pPlan = (CPlan*)(pm->RequestPlan(m_pDBManager));
-		//assert(m_pDBManager != nullptr);
-
-		//void* robots = pm->RequestRobots(m_pDBManager);
-
-		////	cast robot manager to class from void so I can use it.
-		//IModel* model = (IModel*)m_pModel;
-		////model->set_Robots(robots);
-
-		//// clean up your temporary memory resoureces related to robots
-		//pm->ReleaseRobots(m_pDBManager);
-
 		IModel* model = (IModel*)m_pModel;
 		bool flag = model->LoadRobots();
 
@@ -80,22 +64,6 @@ bool Controller::LoadDetectorView()
 {
 	try
 	{
-		////	cast detector manager to class from void so I can use it.
-		//IDetectorManager* pm = (IDetectorManager*)m_pDetectorManager;
-
-		////	ask the database manager for a list of active detectors
-		////CPlan* pPlan = (CPlan*)(pm->RequestPlan(m_pDBManager));
-		//assert(m_pDBManager != nullptr);
-
-		//void* detectors = pm->RequestDetectors(m_pDBManager);
-
-		////	cast plan manager to class from void so I can use it.
-		//IModel* model = (IModel*)m_pModel;
-		////model->set_Detectors(detectors);
-
-		//// clean up your temporary memory resoureces related to plans
-		//pm->ReleaseDetectors(m_pDBManager);
-
 		IModel* model = (IModel*)m_pModel;
 		bool flag = model->LoadDetectors();
 
@@ -112,22 +80,9 @@ bool Controller::LoadPlanView()
 {
 	try
 	{
-
-		////	cast plan manager to class from void so I can use it.
-		//IPlanManager* pm = (IPlanManager*)m_pPlanManager;
-
-		////	ask the database manager for a list of active plans
-		////CPlan* pPlan = (CPlan*)(pm->RequestPlan(m_pDBManager));
-		//assert(m_pDBManager != nullptr);
-
-		//void* plans = pm->RequestPlans(m_pDBManager);
-
 		//	cast plan manager to class from void so I can use it.
 		IModel* model = (IModel*)m_pModel;
 		bool flag = model->LoadPlans();
-
-		// clean up your temporary memory resoureces related to plans
-		//pm->ReleasePlans(m_pDBManager);
 
 		return true;
 	}

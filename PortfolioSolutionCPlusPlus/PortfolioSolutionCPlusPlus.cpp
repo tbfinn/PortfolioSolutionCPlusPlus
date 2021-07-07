@@ -69,7 +69,7 @@ CPortfolioSolutionCPlusPlusApp::CPortfolioSolutionCPlusPlusApp() noexcept
 
 CPortfolioSolutionCPlusPlusApp theApp;
 
-sz::event_handler<unsigned int> timerHandler1([](unsigned int counter)
+sz::event_handler<unsigned int> IsModelDirtyEventHandler([](unsigned int counter)
 {
 	theApp.UpdateViews();
 });
@@ -262,7 +262,7 @@ void CPortfolioSolutionCPlusPlusApp::SaveCustomState()
 // CPortfolioSolutionCPlusPlusApp message handlers
 BOOL CPortfolioSolutionCPlusPlusApp::InitEvents()
 {
-	((Model*)m_pModel)->DataChange += timerHandler1;
+	((Model*)m_pModel)->DataChange += IsModelDirtyEventHandler;
 	return TRUE;
 }
 
