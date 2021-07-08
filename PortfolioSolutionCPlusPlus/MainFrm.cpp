@@ -363,6 +363,17 @@ void CMainFrame::UpdateNavigationViews(void* pModel)
 {
 	// TODO - CLEAR UI
 
+	//m_wndPlanView.DeleteAllItems();
+	//m_wndRobotView.DeleteAllItems();
+	//m_wndDetectorView.DeleteAllItems();
+
+	//int nColumnCount = m_wndPlanView.GetHeaderCtrl()->GetItemCount();
+	//for (int i = 0; i < nColumnCount; i++)
+	//{
+	//	m_wndPlanView.DeleteColumn(i);
+	//}
+
+
 	Model* model = ((Model*)pModel);
 	int pcnt = static_cast<Model*>(pModel)->get_PlanCount();
 	for(int i = 0; i < pcnt; i++)
