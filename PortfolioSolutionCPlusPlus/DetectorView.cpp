@@ -10,6 +10,7 @@
 #include "..\CommonDataLibrary\Plan.h"
 #include "..\CommonDataLibrary\Robot.h"
 #include "..\CommonDataLibrary\Detector.h"
+#include "Model.h"
 
 
 class CDetectorViewMenuButton : public CMFCToolBarMenuButton
@@ -139,21 +140,21 @@ void CDetectorView::InitializeDetectorView()
 	m_wndDetectorView.InsertColumn(2, L"Date", LVCFMT_LEFT, 100);
 }
 
-void CDetectorView::FillDetectorView(void* data)
+void CDetectorView::FillDetectorView(void* pmodel)
 {
-	std::vector<void*> pdata = *(std::vector<void*>*) data;
-	int count = (int)(pdata.size());
-	assert(count > 0);
-	for (int i = 0; i < (int)(pdata.size()); i++)
-	{
-		//	retrieve a plan from the list
-		DataLibrary::CDetector* pdetector = (DataLibrary::CDetector*)pdata[i];
+	Model* pModel = ((Model*)pmodel);
+	m_wndDetectorView.DeleteAllItems();
 
-		//	get the name of the plan for column 1
-		std::wstring name = pdetector->get_name();
+	int pcnt = static_cast<Model*>(pModel)->get_DetectorCount();
+	for (int i = 0; i < pcnt; i++)
+	{
+		DataLibrary::CDetector detector = static_cast<Model*>(pModel)->get_Detector(i);
+
+		// TODO - insert plan into UI
+		std::wstring name = detector.get_name();
 
 		//	get the timestamp of the plan for column2
-		time_t time = pdetector->get_timestamp();
+		time_t time = detector.get_timestamp();
 
 		//	convert the time structure into a local time stamps
 		std::tm * ptm = std::localtime(&time);
@@ -170,7 +171,6 @@ void CDetectorView::FillDetectorView(void* data)
 		//	add the timestamp to the new item in the list
 		m_wndDetectorView.SetItemText(nItem, 1, buffer);
 	}
-
 }
 
 void CDetectorView::OnContextMenu(CWnd* pWnd, CPoint point)

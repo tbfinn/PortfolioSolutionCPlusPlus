@@ -362,42 +362,9 @@ void CMainFrame::OnViewCustomize()
 void CMainFrame::UpdateNavigationViews(void* pModel)
 {
 	// TODO - CLEAR UI
-
-	//m_wndPlanView.DeleteAllItems();
-	//m_wndRobotView.DeleteAllItems();
-	//m_wndDetectorView.DeleteAllItems();
-
-	//int nColumnCount = m_wndPlanView.GetHeaderCtrl()->GetItemCount();
-	//for (int i = 0; i < nColumnCount; i++)
-	//{
-	//	m_wndPlanView.DeleteColumn(i);
-	//}
-
-
-	Model* model = ((Model*)pModel);
-	int pcnt = static_cast<Model*>(pModel)->get_PlanCount();
-	for(int i = 0; i < pcnt; i++)
-	{
-		DataLibrary::CPlan plan = static_cast<Model*>(pModel)->get_Plan(i);
-
-		// TODO - insert plan into UI
-	}
-
-	int rcnt = static_cast<Model*>(pModel)->get_RobotCount();
-	for (int i = 0; i < rcnt; i++)
-	{
-		DataLibrary::CRobot robot = static_cast<Model*>(pModel)->get_Robot(i);
-
-		// TODO - insert robot into UI
-	}
-
-	int dcnt = static_cast<Model*>(pModel)->get_DetectorCount();
-	for (int i = 0; i < dcnt; i++)
-	{
-		DataLibrary::CDetector detector = static_cast<Model*>(pModel)->get_Detector(i);
-
-		// TODO - insert robot into UI
-	}
+	m_wndPlanView.FillPlanView(pModel);
+	m_wndRobotView.FillRobotView(pModel);
+	m_wndDetectorView.FillDetectorView(pModel);
 }
 
 LRESULT CMainFrame::OnToolbarCreateNew(WPARAM wp,LPARAM lp)

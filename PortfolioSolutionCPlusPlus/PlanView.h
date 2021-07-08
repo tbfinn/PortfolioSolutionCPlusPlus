@@ -27,7 +27,6 @@ public:
 public:
 	// methods
 	std::list<std::wstring> l;
-
 	void FillPlanView(void*);
 	void AdjustLayout();
 	void OnChangeVisualStyle();

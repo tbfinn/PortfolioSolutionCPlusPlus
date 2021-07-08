@@ -10,6 +10,7 @@
 #include "..\CommonDataLibrary\Plan.h"
 #include "..\CommonDataLibrary\Robot.h"
 #include "..\CommonDataLibrary\Detector.h"
+#include "Model.h"
 
 class CRobotViewMenuButton : public CMFCToolBarMenuButton
 {
@@ -138,21 +139,22 @@ void CRobotView::InitializeRobotView()
 	m_wndRobotView.InsertColumn(2, L"Date", LVCFMT_LEFT, 100);
 }
 
-void CRobotView::FillRobotView(void* data)
+void CRobotView::FillRobotView(void* pmodel)
 {
-	std::vector<void*> pdata = *(std::vector<void*>*) data;
-	int count = (int)(pdata.size());
-	assert(count > 0);
-	for (int i = 0; i < (int)(pdata.size()); i++)
-	{
-		//	retrieve a plan from the list
-		DataLibrary::CRobot* probot = (DataLibrary::CRobot*)pdata[i];
 
-		//	get the name of the plan for column 1
-		std::wstring name = probot->get_name();
+	Model* pModel = ((Model*)pmodel);
+	m_wndRobotView.DeleteAllItems();
+
+	int pcnt = static_cast<Model*>(pModel)->get_RobotCount();
+	for (int i = 0; i < pcnt; i++)
+	{
+		DataLibrary::CRobot robot = static_cast<Model*>(pModel)->get_Robot(i);
+
+		// TODO - insert plan into UI
+		std::wstring name = robot.get_name();
 
 		//	get the timestamp of the plan for column2
-		time_t time = probot->get_timestamp();
+		time_t time = robot.get_timestamp();
 
 		//	convert the time structure into a local time stamps
 		std::tm * ptm = std::localtime(&time);
@@ -169,7 +171,6 @@ void CRobotView::FillRobotView(void* data)
 		//	add the timestamp to the new item in the list
 		m_wndRobotView.SetItemText(nItem, 1, buffer);
 	}
-
 }
 
 void CRobotView::OnContextMenu(CWnd* pWnd, CPoint point)
