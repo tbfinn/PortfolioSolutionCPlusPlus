@@ -32,3 +32,29 @@
 
 
 // reference additional headers your program requires here
+
+#define PI 3.14159265
+
+const double rads_per_pulse = 1;
+
+typedef enum {
+
+	Sine,
+	Square,
+	Triangle,
+	Sawtooth,
+
+	Pulse,
+	PulseTrain,
+	WhiteNoise,    // random between -1 and 1
+	GaussNoise,	   // random between -1 and 1 with normal distribution
+	DigitalNoise,
+
+	//UserDefined    // user defined between -1 and 1	}
+}		SignalType;
+
+
+
+
+
+
